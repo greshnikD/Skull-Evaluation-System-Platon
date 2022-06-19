@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Skull Evaluation System Platon</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/jquery.line.js"></script>
+    <script>
+        $(function () {
+            const precondition_dotList = [
+                {
+                    'name': 'A',
+                    'editable': true,
+                    'x': 629.5,
+                    'y': 454
+                }, {
+                    'name': 'A3',
+                    'editable': false,
+                    'x': 571.5,
+                    'y': 542
+                }, {
+                    'name': 'Ar',
+                    'editable': true,
+                    'x': 297.5,
+                    'y': 365
+                }, {
+                    'name': 'B',
+                    'editable': true,
+                    'x': 591.5,
+                    'y': 558
+                }, {
+                    'name': 'Ba',
+                    'editable': true,
+                    'x': 226.5,
+                    'y': 383
+                }, {
+                    'name': 'C',
+                    'editable': true,
+                    'x': 301.5,
+                    'y': 326
+                }, {
+                    'name': 'C1',
+                    'editable': true,
+                    'x': 325.5,
+                    'y': 360
+                }, {
+                    'name': 'DT pog',
+                    'editable': true,
+                    'x': 652.5,
+                    'y': 608
+                }, {
+                    'name': 'EN pn',
+                    'editable': true,
+                    'x': 755.5,
+                    'y': 403
+                }, {
+                    'name': 'Gn',
+                    'editable': true,
+                    'x': 611.5,
+                    'y': 620
+                }, {
+                    'name': 'Go',
+                    'editable': true,
+                    'x': 348.5,
+                    'y': 524
+                }, {
+                    'name': 'I',
+                    'editable': false,
+                    'x': 623.5,
+                    'y': 505
+                }, {
+                    'name': 'LL',
+                    'editable': true,
+                    'x': 670.5,
+                    'y': 529
+                }, {
+                    'name': 'Me',
+                    'editable': true,
+                    'x': 572.5,
+                    'y': 631
+                }, {
+                    'name': 'N',
+                    'editable': true,
+                    'x': 640.5,
+                    'y': 242
+                }, {
+                    'name': 'Or',
+                    'editable': true,
+                    'x': 584.5,
+                    'y': 346
+                }, {
+                    'name': 'P6',
+                    'editable': true,
+                    'x': 469.5,
+                    'y': 490
+                }, {
+                    'name': 'Po',
+                    'editable': true,
+                    'x': 257.5,
+                    'y': 329
+                }, {
+                    'name': 'Pog',
+                    'editable': true,
+                    'x': 608.5,
+                    'y': 625
+                }, {
+                    'name': 'Pt',
+                    'editable': true,
+                    'x': 424.5,
+                    'y': 322
+                }, {
+                    'name': 'S',
+                    'editable': true,
+                    'x': 352.5,
+                    'y': 250
+                }, {
+                    'name': 'SNA',
+                    'editable': true,
+                    'x': 667.5,
+                    'y': 429
+                }, {
+                    'name': 'SNP pm',
+                    'editable': true,
+                    'x': 433.5,
+                    'y': 422
+                }, {
+                    'name': 'Se',
+                    'editable': true,
+                    'x': 369.5,
+                    'y': 258
+                }, {
+                    'name': 'Sn',
+                    'editable': true,
+                    'x': 693.5,
+                    'y': 438
+                }, {
+                    'name': 'UL',
+                    'editable': true,
+                    'x': 697.5,
+                    'y': 486
+                }, {
+                    'name': 'aii',
+                    'editable': true,
+                    'x': 572.5,
+                    'y': 574
+                }, {
+                    'name': 'ais',
+                    'editable': true,
+                    'x': 592.5,
+                    'y': 427
+                }, {
+                    'name': 'ii',
+                    'editable': true,
+                    'x': 603.5,
+                    'y': 493
+                }, {
+                    'name': 'is',
+                    'editable': true,
+                    'x': 646.5,
+                    'y': 518
+                }, {
+                    'name': 'n_',
+                    'editable': true,
+                    'x': 668.5,
+                    'y': 247
+                }]
+            const dotPairs = [
+                ["S", "N"],
+                ["N", "A"],
+                ["N", "B"],
+                ["S", "Go"],
+                ["N", "Me"],
+                ["Go", "Me"],
+                ["SNP pm", "SNA"],
+                ["N", "Se"],
+                ["Go", "Ar"],
+                ["Go", "N"],
+                ["Po", "Or"],
+                ["S", "Ar"],
+                ["N", "Pog"],
+                ["ii", "is"],
+//                ["P6", "I"],
+                ["ais", "is"],
+                ["aii", "ii"],
+                ["EN pn", "DT pog"],
+                ["A", "B"],
+                ["EN pn", "Sn"],
+                ["Sn", "UL"],
+                ["Sn", "DT pog"],
+                ["S", "Gn"],
+//                ["B", "C1"],
+//                ["A", "A3"],
+                ["Ba", "N"]
+            ]
+
+            let zoomImage = 1
+            let baseZoom = 1
+            let dotList = []
+            let lastScrollTop = 1
+
+            $('#upload_button, .no_image').on('click', uploadImage);
+
+            function clone(obj) {
+                if (null == obj || "object" != typeof obj) return obj;
+                let copy = obj.constructor();
+                for (let attr in obj) {
+                    if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+                }
+                return copy;
+            }
+
+            function getDotByName(dotName, dotList) {
+                let res = {}
+                if (dotList[dotName])
+                    res[dotName] = clone(dotList[dotName])
+                else
+                    console.log('Dot with name ' + dotName + ' not found')
+                return res
+            }
+
+            function drawLines(dotPairs, dotList) {
+                for (let i = 0; i < dotPairs.length; i++) {
+                    drawLineByDots(
+                        getDotByName(dotPairs[i][0], dotList)[dotPairs[i][0]],
+                        getDotByName(dotPairs[i][1], dotList)[dotPairs[i][1]]
+                    )
+                }
+            }
+
+            function drawLineByDots(dot1, dot2) {
+                $('#image_container').line(
+                    dot1['x'],
+                    dot1['y'],
+                    dot2['x'],
+                    dot2['y'])
+            }
+
+            function uploadImage() {
+                $('#upload').trigger('click');
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        let reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('.no_image').hide()
+                            $('.image_wrapper').css('display', 'block')
+
+                            //cleanAll()
+                            $('#image_visor').css('display', 'none')
+                                .attr('src', e.target.result)
+                                .css('display', 'block')
+                                .one("load", function () {
+
+                                    let max_side = $(this).height() > $(this).width() ?
+                                        $(this).height() :
+                                        $(this).width()
+
+                                    baseZoom = zoomImage = Math.floor($('.image_wrapper').width() * 100 / max_side) / 100
+
+                                    $('#image_container').css('zoom', zoomImage)
+                                });
+
+                            $('#recognize').removeClass('disable')
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+                $("#upload").on('change', function () {
+                    cleanAll();
+                    readURL(this);
+                })
+            }
+
+            /*
+            $("#image_visor").on('click', function (ev) {
+                let mouseX = ev.pageX - ($('.content').width() - $('.visor').width()) / 2;
+                let mouseY = ev.pageY - $('header').height();
+                let dotName = '';
+
+
+                if (clickCounter < dotList.length) {
+                    dotName = dotList[clickCounter]['name']
+
+                    drawDot(dotName, mouseY, mouseX)
+                    dotList[clickCounter]['x'] = mouseX
+                    dotList[clickCounter]['y'] = mouseY
+                    console.log(dotList[clickCounter]['name'] + ': X:' + mouseX + ' Y:' + mouseY)
+
+                    clickCounter++
+                }
+
+            })
+            */
+            function cleanAll() {
+                /*
+                for (let i = 0; i < dotList.length; i++) {
+                    dotList[i]['x'] = 0;
+                    dotList[i]['y'] = 0;
+                }
+                 */
+                $('.line').remove()
+                $('.dot').remove()
+
+            }
+
+            function drawDot(name, y, x) {
+                $("#image_container").append(
+                    $('<div/>')
+                        .addClass('dot')
+                        .css('top', y + 'px')
+                        .css('left', x + 'px')
+                        .css('font-size', 16 / zoomImage)
+                        .prop('title', name)
+                        .text(name)
+                        .draggable({
+                            cursor: "crosshair",
+                            disabled: true
+                        })
+                        .on("dragstop", function () {
+                            dotList[$(this).attr('title')]['x'] = parseFloat($(this).css('left'))
+                            dotList[$(this).attr('title')]['y'] = parseFloat($(this).css('top'))
+                            $("#image_container .line").remove()
+
+                            drawLines(dotPairs, dotList)
+
+                        })
+                        .css("position", "absolute")
+                );
+
+            }
+
+            function showDotList(container, list) {
+                for (let key in list) {
+                    if (list[key]['editable'])
+                        $(container).append(
+                            $('<div/>')
+                                .prop('title', key)
+                                .append($('<input type="checkbox" checked dot="' + key + '"/>').on('click', function () {
+                                    if ($(this).is(':checked')) {
+                                        $(".dot[title='" + $(this).attr('dot') + "']").show();
+                                    } else {
+                                        $(".dot[title='" + $(this).attr('dot') + "']").hide();
+                                    }
+                                }))
+                                .append(key)
+                                .on('click', function () {
+                                    $(this).toggleClass("selected");
+                                    $(".dot[title='" + $(this).prop("title") + "']")
+                                        .toggleClass("selected")
+                                        .draggable({
+                                            disabled: false
+                                        })
+                                })
+                        )
+                }
+
+
+                /*
+
+                $('.dotList div input:checkbox').on('click', function () {
+                    $('#checkbox').click(function(){
+                        if ($(this).is(':checked')){
+                            $('#btn').removeAttr('disabled');
+                        } else {
+                            $('#btn').attr('disabled', 'disabled');
+                        }
+                    });
+
+                })
+
+                 */
+            }
+
+            function setDots(list) {
+                for (let key in list) {
+                    drawDot(key, list[key]['y'], list[key]['x'])
+                }
+            }
+
+            $('#lines_hider').on('click', function () {
+                $('.visor .line').toggle()
+            })
+
+            $('#recognize').on('click', function () {
+                $('.overlay_popup').show()
+                let filesSelected = document.getElementById("upload").files;
+                if (filesSelected.length > 0) {
+                    let fileToLoad = filesSelected[0];
+                    let fileReader = new FileReader();
+                    fileReader.onload = function (fileLoadedEvent) {
+                        let srcData = fileLoadedEvent.target.result.split(';base64,')[1];
+                        const data = {"image": srcData};
+
+                        fetch('http://13.53.164.223:5129/predict',
+                            {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data),
+                            }
+                        )
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data)
+                                for (let key in data) {
+                                    dotList[key] = {
+                                        'editable': data[key]['enabled'],
+                                        'x': data[key]['x'],
+                                        'y': data[key]['y']
+                                    }
+                                }
+                                setDots(dotList)
+
+                                drawLines(dotPairs, dotList)
+
+                                if ($('.dotList').is(':empty')) {
+                                    showDotList('.dotList', dotList)
+                                }
+
+                                $('#decryption').removeClass('disable')
+                                $('#report').removeClass('disable')
+                                $('#hand_move').removeClass('disable')
+                                $('#lines_hider').removeClass('disable')
+                                $('#calc').removeClass('disable')
+                                $('.overlay_popup').hide()
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                                $('.overlay_popup').hide()
+                            });
+
+                    }
+                    fileReader.readAsDataURL(fileToLoad);
+                }
+
+            })
+
+            $('#report').on('click', function () {
+                window.open('files/medicinskaya karta v10 (polnaia)_1649867809.pdf');
+            })
+
+            $('#decryption').on("click", function () { // Вызываем функцию по нажатию на кнопку
+                let popup_id = $('#' + $(this).attr("rel")); // Связываем rel и popup_id
+                $(popup_id).show(); // Открываем окно
+                $('.overlay_popup, .popup').show(); // Открываем блок заднего фона
+            })
+
+            $('.overlay_popup').on("click", function () { // Обрабатываем клик по заднему фону
+                $('.overlay_popup, .popup').hide(); // Скрываем затемнённый задний фон и основное всплывающее окно
+            })
+
+            $('.image_wrapper').on('mousewheel', function (e) {
+                let st = $(this).scrollTop();
+                if (e.originalEvent.wheelDelta / 120 > 0) {
+                    zoomImage -= 0.1
+                } else {
+                    zoomImage += 0.1
+                }
+                $('#image_container').css('zoom', zoomImage)
+                lastScrollTop = st;
+
+                if (zoomImage > baseZoom) {
+                    $('.image_wrapper').css('overflow', 'scroll')
+                } else {
+                    $('.image_wrapper').css('overflow', 'hidden')
+                }
+            })
+
+            $('#calc').on('click', function () {
+                $('.overlay_popup').show()
+                let sendList = {}
+                for (let key in dotList) {
+                    sendList[key] = {
+                        'enabled': dotList[key]['editable'],
+                        'x': dotList[key]['x'],
+                        'y': dotList[key]['y']
+                    }
+
+                }
+                console.log(sendList)
+
+                fetch('http://13.53.164.223:5129/calculate_angles',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(sendList),
+                    }
+                )
+                    .then(response => response.json())
+                    .then(data => {
+                        $('#val_ANB').text(data['ANB'])
+                        $('#val_sna').text(data['SNA'])
+                        $('#val_snb').text(data['SNB'])
+                        $('#val_wits').text(data['Wits'])
+                        $('.val_nse').text(data['NSe'])
+                        $('#val_nsargome').text(data['NSAr + SArGo + ArGoMe'])
+                        $('#val_nagome').text(data['NGoMe'])
+                        $('#val_nlml').text(data['NL | ML'])
+                        $('#val_pispi').text(data['Pis - Pii'])
+                        $('#val_sgonme').text(data['SGo NMe'])
+                        $('#val_mlnsl').text(data['ML | NSL'])
+                        $('#val_verh').text(data['Верхняя челюсть'])
+                        $('#val_nij').text(data['Нижняя челюсть'])
+                        console.log(data)
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+                $('.overlay_popup').hide();
+            })
+        });
+    </script>
+</head>
+<body>
+<header>
+    <div class="menu">
+        Меню
+    </div>
+    <div class="top_wrapper">
+        <div class="top_panel">
+            <div class="left_side"></div>
+            <a class="patient" href="#" title="Буторина Олеся Александровна">Буторина Олеся Александровна</a>
+            <div class="right_side"></div>
+        </div>
+    </div>
+    <div class="auth_block">
+        <img src="img/img.png" alt="">
+        <a href="cabinet.html">Кабинет врача</a>
+    </div>
+</header>
+<div class="content">
+    <div class="visor">
+        <div class="dotList"></div>
+        <div class="no_image">выберите изображение</div>
+        <div class="image_wrapper">
+            <div id="image_container">
+                <img id="image_visor" src="#" alt="your image"/>
+            </div>
+        </div>
+        <div class="work_panel">
+            <div id="upload_button"><img src="img/upload.svg" width="64px" height="64px" alt="#"><br>Загрузить
+                изображение
+            </div>
+            <div id="recognize" class="disable"><img src="img/recognize.svg" width="64px" height="64px" alt="#"><br>Распознать
+            </div>
+            <div id="hand_move" class="disable"><img src="img/edit.svg" width="64px" height="64px" alt="#"><br>Ручное
+                редактирование
+            </div>
+            <div id="calc" class="disable"><img src="img/calc.svg" width="64px" height="64px" alt="#"><br>Произвести
+                расчет
+            </div>
+            <div id="lines_hider" class="disable"><img src="img/lines.svg" width="64px" height="64px" alt="#"><br>Показать/скрыть
+                линии
+            </div>
+            <div id="Save" class="disable"><img src="img/save.svg" width="64px" height="64px" alt="#"><br>Сохранить
+                изменения
+            </div>
+            <div id="undo" class="disable"><img src="img/undo.svg" width="64px" height="64px" alt="#"><br>Отменить
+                изменение
+            </div>
+            <div id="redo" class="disable"><img src="img/redo.svg" width="64px" height="64px" alt="#"><br>Вернуть
+                изменение
+            </div>
+            <div id="decryption" class="disable" rel="popup1"><img src="img/table.svg" width="64px" height="64px"
+                                                                   alt="#"><br>Расшифровка
+            </div>
+            <div id="report" class="disable"><img src="img/report.svg" width="64px" height="64px" alt="#"><br>Сформировать
+                медицинскую карту
+            </div>
+            <input type="file" id="upload" style="display:none">
+
+        </div>
+    </div>
+    <div id="imgTest"></div>
+</div>
+<div class="overlay_popup">
+    <div class="popup" id="popup1">
+        <table class="c18">
+            <tbody>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Скелетные параметры</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c15"><span class="c1">Показатель</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c15"><span class="c1">Норма</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c15"><span class="c1">Допустимо отклонение</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c15"><span class="c1">Отклонение показателя</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c15"><span class="c1">Диагноз</span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">ANB(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5" id="val_ANB">1,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Ретрогнатия нижней челюсти</span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Beta Angle(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">33,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">31</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,7</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Wits Appraisal(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11" id="val_wits">2,9</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-1,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">2,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">SNA(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5" id="val_sna">82,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">82</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">SNB (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5" id="val_snb">80,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">80,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Anterior Cranial Base (SN) (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">70,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">77,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">-2,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Maxillary length (ANS-PNS) (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">56,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">51,6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">4,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">1,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">PNS-A(mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">50,6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">49,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Mandibular Body Length (Go-Me) (mm)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">71,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">71</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Co-Go (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">68</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">66</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,5</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Pog-MB (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">1,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,6</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Вертикальные параметры</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">FH - SN(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">9,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,08</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Cranio-Mx Base/SN-Palatal Plane(o)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">7,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,8</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">MP-SN(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">26,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">33</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">S-Go (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">85,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">92</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Total Face Height (N-Gn) (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">117,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">115</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,5</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c7">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Upper Face Height (N-ANS) (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">52,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">50</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">2,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">1,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Lower Face Height (ANS-Gn) (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">69,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">60</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">4,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">2,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U1 - PP (UADH) (mm)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">27,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">31</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-1,8</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">L1 - MP (LADH) (mm)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">42,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">46</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-1,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U6 - PP (UPDH) (mm)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">25</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">27</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,7</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">L6 - MP (LPDH) (mm)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">31,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">39</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">-2,6</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Параметры наклона и положения зубов</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Interincisal Angle (Pis - Pii) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5" id="val_pispi">132,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">130</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,5</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Протрузия резцов</span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U6-PT Vertical (mm)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">21,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">21</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Overbite (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Overjet (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U1-SN (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">105,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">103,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U1-Palatal Plane (o)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">109,6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">110</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Протрузия резцов верхней челюсти </span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U1-NA (mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">U1-NA(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">23</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">22,8</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">IMPA (L1-MP) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">95,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">95</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">L1-NB(mm)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">1,8</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">L1-NB(o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">23</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">25,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Мягкотканные параметры</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Facial Convexity (G'-Sn-Po') (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">8,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">12</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-1,9</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Выпуклый тип профиля</span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Upper Lip to E-Plane (mm)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-7,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-7,6</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Lower Lip to E-Plane (mm)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-2,6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,3</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Nasolabial Angel (Col-Sn-UL) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">127,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">102</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">8</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">3,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c1">Параметры оценки типа роста</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">SGo/NGn (%)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13" id="val_sgonme">70,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">63</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">3,7</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Горизонтальный тип роста</span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">MP-SN (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">26,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">33</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Palatal -Mand Angle (PP-MP) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">22,2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">25</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,5</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Facial Axis-Ricketts (NaBa-PtGn) (o)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">97,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">90</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">3,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">2,1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Lower Gonial Angle (Na-Go-Me) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4" id="val_nagome">69</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">76</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">-2,3</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Sum Total N-S-Art + S-Art-Go+Art-Go-Me (0)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4" id="val_nsargome">386,7</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">396</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">-2,3</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Y-Axis - Downs (SGn-FH) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">59,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">60</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">NL | ML</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5" id="val_nlml">59,3</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">60</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">ML | NSL</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5" id="val_mlnsl">59,3</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">60</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">3,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Воздухоносные пути</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Upper Airway Naso-pharyngeal</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">12</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">13</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Уменьшение объёма воздухоносных путей</span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Lower Airway Oro-pharyngeal</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">15,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">11</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c13">4,5</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Разное</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Ba-S-N (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">134,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">130</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">100</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Saddle/Sella Angle (SN-Ar) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">127,3</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">124</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,7</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Articular Angle (o)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">142,6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">138</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,8</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Gonial/Jaw Angle (Ar-Go-Me) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">116,8</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">130</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">6,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Upper Gonial Angle (Ar-Go-Na) (o)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">47,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">49</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Occ Plane to Fh (o)</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,1</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4,7</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,9</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Overbite Depth indicator (ODI)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">20,6</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">22,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">4,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,5</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span
+                        class="c5">Anteroposterior Sysplasia (APDI)</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">72,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">74,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">-0,3</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">ODI+APDI</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">83,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">81,4</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,4</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Combination Factor (CF)</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">156,2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">155</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">0,2</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">157,8</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">155,9</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">1</span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Параметры верхней челюсти</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Nse</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5 val_nse">66,66</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">66,66</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">A'PNS'</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4" id="val_verh">41,62</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">46,62</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Макрогнатия верхней челюсти</span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">FPMIS'A'</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">43,84</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">FPMID'A'</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">45,78</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Lateral shift</span></p></td>
+                <td class="c14" colspan="1" rowspan="1"><p class="c10"><span class="c11">1,96</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">0-2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c1">Параметры нижней челюсти</span>
+                </p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Nse</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">66,66</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">66,66</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">PM'Go'</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4" id="val_nij">64,714</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c4">69,93</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5">Макрогнатия нижней челюсти</span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">PM'GoS'</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">78,98</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">PM'GoD'</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">77,797</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Lateral shift</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">-1,19</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">0-2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">CoS'GoS''</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">52,5</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">CoD'GoD''</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c5">52,98</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            <tr class="c9">
+                <td class="c8" colspan="1" rowspan="1"><p class="c12"><span class="c5">Lateral shift branch</span></p>
+                </td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">0,48</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c10"><span class="c11">0-2</span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c0" colspan="1" rowspan="1"><p class="c2"><span class="c5"></span></p></td>
+                <td class="c6" colspan="1" rowspan="1"><p class="c3"><span class="c5"></span></p></td>
+            </tr>
+            </tbody>
+        </table>
+        Диагноз:<br>
+        Микрогнатия нижней и верхней челюсти
+    </div>
+</div>
+<div id="imgEncoded"></div>
+<footer>
+    <a class="copyrights" href="#">&copy; Created by dream-team</a>
+</footer>
+</body>
+</html>

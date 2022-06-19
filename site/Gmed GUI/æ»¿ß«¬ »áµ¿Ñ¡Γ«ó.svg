@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="1024"
+     viewBox="0 0 1920 1080">
+    <defs>
+        <style>
+            .cls-1 {
+            clip-path: url(#clip-Список_пациентов);
+            }
+
+            .cls-2, .cls-6 {
+            stroke: #bdb8ec;
+            stroke-linejoin: bevel;
+            stroke-width: 2px;
+            }
+
+            .cls-2 {
+            opacity: 0.92;
+            fill: url(#linear-gradient-2);
+            }
+
+            .cls-3, .cls-5, .cls-7 {
+            fill: #fff;
+            }
+
+            .cls-3 {
+            stroke: #fff;
+            }
+
+            .cls-4 {
+            fill: #0c0101;
+            font-size: 25px;
+            }
+
+            .cls-4, .cls-5 {
+            font-family: SegoeUI, Segoe UI;
+            }
+
+            .cls-5 {
+            font-size: 50px;
+            }
+
+            .cls-6 {
+            fill: url(#linear-gradient-3);
+            }
+
+            .cls-7, .cls-8 {
+            stroke: #707070;
+            }
+
+            .cls-10, .cls-8 {
+            fill: none;
+            }
+
+            .cls-9 {
+            stroke: none;
+            }
+
+            .cls-11 {
+            fill: url(#linear-gradient);
+            }
+
+            .cls-12 {
+            filter: url(#Rectangle_63);
+            }
+
+            .cls-13 {
+            filter: url(#Rectangle_41);
+            }
+        </style>
+        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#6884ea" stop-opacity="0.929"/>
+            <stop offset="1" stop-color="#14309a"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#2223b1"/>
+            <stop offset="1" stop-color="#4546e3" stop-opacity="0.922"/>
+        </linearGradient>
+        <filter id="Rectangle_41" x="7" y="10" width="1905" height="372" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#2633e8" stop-opacity="0.471"/>
+            <stop offset="1" stop-color="#2d2db2" stop-opacity="0.588"/>
+        </linearGradient>
+        <filter id="Rectangle_63" x="7" y="380" width="1905" height="684" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-2"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-2"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <clipPath id="clip-Список_пациентов">
+            <rect width="1920" height="1080"/>
+        </clipPath>
+    </defs>
+    <g id="Список_пациентов" data-name="Список пациентов" class="cls-1">
+        <rect class="cls-11" width="1920" height="1080"/>
+        <g class="cls-13" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Rectangle_41-2" data-name="Rectangle 41" class="cls-2" transform="translate(18 15)">
+                <rect class="cls-9" width="1883" height="350" rx="24"/>
+                <rect class="cls-10" x="-1" y="-1" width="1885" height="352" rx="25"/>
+            </g>
+        </g>
+        <g id="Rectangle_40" data-name="Rectangle 40" class="cls-3" transform="translate(39 246)">
+            <rect class="cls-9" width="586" height="40"/>
+            <rect class="cls-10" x="0.5" y="0.5" width="585" height="39"/>
+        </g>
+        <g id="Rectangle_60" data-name="Rectangle 60" class="cls-3" transform="translate(39 155)">
+            <rect class="cls-9" width="586" height="40"/>
+            <rect class="cls-10" x="0.5" y="0.5" width="585" height="39"/>
+        </g>
+        <g id="Rectangle_61" data-name="Rectangle 61" class="cls-3" transform="translate(667 155)">
+            <rect class="cls-9" width="586" height="40"/>
+            <rect class="cls-10" x="0.5" y="0.5" width="585" height="39"/>
+        </g>
+        <g id="Rectangle_62" data-name="Rectangle 62" class="cls-3" transform="translate(1295 155)">
+            <rect class="cls-9" width="586" height="40"/>
+            <rect class="cls-10" x="0.5" y="0.5" width="585" height="39"/>
+        </g>
+        <text id="ПОИСК_ПО_ИМЕНИ" data-name="ПОИСК ПО ИМЕНИ" class="cls-4" transform="translate(145 155)">
+            <tspan x="-113.019" y="27">ПОИСК ПО ИМЕНИ</tspan>
+        </text>
+        <text id="ПОИСК_ПО_НОМЕРУ_ТЕЛЕФОНА" data-name="ПОИСК ПО НОМЕРУ ТЕЛЕФОНА" class="cls-4"
+              transform="translate(145 246)">
+            <tspan x="-184.283" y="27">ПОИСК ПО НОМЕРУ ТЕЛЕФОНА</tspan>
+        </text>
+        <text id="ПОИСК_ПО_фАМИЛИИ" data-name="ПОИСК ПО фАМИЛИИ" class="cls-4" transform="translate(804 155)">
+            <tspan x="-132.233" y="27">ПОИСК ПО фАМИЛИИ</tspan>
+        </text>
+        <text id="ПОИСК_ПО_ОТЧЕСТВУ" data-name="ПОИСК ПО ОТЧЕСТВУ" class="cls-4" transform="translate(1414 155)">
+            <tspan x="-126.978" y="27">ПОИСК ПО ОТЧЕСТВУ</tspan>
+        </text>
+        <text id="СПИСОК_ПАЦИЕНТОВ-2" data-name="СПИСОК ПАЦИЕНТОВ" class="cls-5" transform="translate(180 30)">
+            <tspan x="-255.603" y="54">СПИСОК ПАЦИЕНТОВ</tspan>
+        </text>
+        <g class="cls-12" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Rectangle_63-2" data-name="Rectangle 63" class="cls-6" transform="translate(18 385)">
+                <rect class="cls-9" width="1883" height="662" rx="24"/>
+                <rect class="cls-10" x="-1" y="-1" width="1885" height="664" rx="25"/>
+            </g>
+        </g>
+        <g id="Rectangle_64" data-name="Rectangle 64" class="cls-7" transform="translate(39 407)">
+            <rect class="cls-9" width="1842" height="622"/>
+            <rect class="cls-10" x="0.5" y="0.5" width="1841" height="621"/>
+        </g>
+        <line id="Line_62" data-name="Line 62" class="cls-8" x2="1842" transform="translate(39.5 484.5)"/>
+        <line id="Line_63" data-name="Line 63" class="cls-8" y2="612" transform="translate(959.5 407.5)"/>
+        <line id="Line_64" data-name="Line 64" class="cls-8" y2="622" transform="translate(475.5 407.5)"/>
+        <line id="Line_65" data-name="Line 65" class="cls-8" y2="622" transform="translate(1414.5 407.5)"/>
+        <line id="Line_66" data-name="Line 66" class="cls-8" y2="10" transform="translate(959.5 1019.5)"/>
+        <text id="ПОИСК_ПО_ИМЕНИ-2" data-name="ПОИСК ПО ИМЕНИ" class="cls-4" transform="translate(73 430)">
+            <tspan x="-113.019" y="27">ПОИСК ПО ИМЕНИ</tspan>
+        </text>
+        <text id="ПОИСК_ПО_фАМИЛИИ-2" data-name="ПОИСК ПО фАМИЛИИ" class="cls-4" transform="translate(539 430)">
+            <tspan x="-132.233" y="27">ПОИСК ПО фАМИЛИИ</tspan>
+        </text>
+        <text id="ПОИСК_ПО_ОТЧЕСТВУ-2" data-name="ПОИСК ПО ОТЧЕСТВУ" class="cls-4" transform="translate(1031 430)">
+            <tspan x="-126.978" y="27">ПОИСК ПО ОТЧЕСТВУ</tspan>
+        </text>
+        <text id="ПОИСК_ПО_НОМЕРУ_ТЕЛЕФОНА-2" data-name="ПОИСК ПО НОМЕРУ ТЕЛЕФОНА" class="cls-4"
+              transform="translate(1449 430)">
+            <tspan x="-184.283" y="27">ПОИСК ПО НОМЕРУ ТЕЛЕФОНА</tspan>
+        </text>
+    </g>
+</svg>

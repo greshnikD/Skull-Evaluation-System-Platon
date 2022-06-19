@@ -1,0 +1,14 @@
+image: python:3
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: creatiwww/docker-compose:latest
+  script:
+    - DOCKER_HOST="http://192.168.3.1:2375" docker-compose -f docker-compose-ci.yml down --remove-orphan
+    - DOCKER_HOST="http://192.168.3.1:2375" docker-compose -f docker-compose-ci.yml build --no-cache
+    - DOCKER_HOST="http://192.168.3.1:2375" docker-compose -f docker-compose-ci.yml up -d
+  only:
+    - server

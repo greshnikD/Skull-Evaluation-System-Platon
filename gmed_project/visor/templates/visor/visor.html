@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<script src="{% static 'scripts/visor.js' %}"></script>
+
+<div class="visor">
+    {% csrf_token %}
+    <div class="dotList"></div>
+    <div class="no_image">выберите изображение</div>
+    <div class="image_wrapper">
+        <div id="image_container">
+            <img id="image_visor" src="#" alt="your image"/>
+        </div>
+    </div>
+    <div class="work_panel">
+        <div id="upload_button">
+            <img src="{% static 'img/upload.svg' %}" width="64px" height="64px" alt="#">
+            <br>Загрузить изображение
+        </div>
+        <div id="recognize" class="disable">
+            <img src="{% static 'img/recognize.svg' %}" width="64px" height="64px" alt="#">
+            <br>Распознать
+        </div>
+        <div id="hand_move" class="disable" style="display:none">
+            <img src="{% static 'img/edit.svg' %}" width="64px" height="64px" alt="#">
+            <br>Ручное редактирование
+        </div>
+        <div id="calc" class="disable">
+            <img src="{% static 'img/calc.svg' %}" width="64px" height="64px" alt="#">
+            <br>Произвести расчет
+        </div>
+        <div id="lines_hider" class="disable">
+            <img src="{% static 'img/lines.svg' %}" width="64px" height="64px" alt="#">
+            <br>Показать/скрыть линии
+        </div>
+        <div id="save_btn" class="disable">
+            <img src="{% static 'img/save.svg' %}" width="64px" height="64px" alt="#">
+            <br>Сохранить изменения
+        </div>
+        <div id="undo" class="disable" style="display:none">
+            <img src="{% static 'img/undo.svg' %}" width="64px" height="64px" alt="#">
+            <br>Отменить изменение
+        </div>
+        <div id="redo" class="disable" style="display:none">
+            <img src="{% static 'img/redo.svg' %}" width="64px" height="64px" alt="#">
+            <br>Вернуть изменение
+        </div>
+        <div id="decryption" class="disable" rel="popup1" style="display:none">
+            <img src="{% static 'img/table.svg' %}" width="64px" height="64px" alt="#">
+            <br>Расшифровка
+        </div>
+        <div id="report" class="disable">
+            <img src="{% static 'img/report.svg' %}" width="64px" height="64px" alt="#">
+            <br>Сформировать медицинскую карту
+        </div>
+        <input type="file" id="upload" style="display:none">
+    </div>
+</div>
+<div id="imgTest"></div>
+</div>
+{% endblock %}

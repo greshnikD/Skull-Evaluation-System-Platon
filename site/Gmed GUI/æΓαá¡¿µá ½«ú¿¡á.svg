@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Страница_логина);
+      }
+
+      .cls-2 {
+        stroke: #bdb8ec;
+        stroke-linejoin: bevel;
+        stroke-width: 2px;
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+      }
+
+      .cls-4, .cls-5 {
+        font-size: 25px;
+        font-family: SegoeUI, Segoe UI;
+      }
+
+      .cls-6 {
+        fill: url(#pattern);
+      }
+
+      .cls-7, .cls-9 {
+        stroke: none;
+      }
+
+      .cls-8 {
+        fill: none;
+      }
+
+      .cls-9 {
+        fill: #707070;
+      }
+
+      .cls-10 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-11 {
+        filter: url(#Rectangle_7);
+      }
+
+      .cls-12 {
+        filter: url(#Rectangle_6);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6884ea" stop-opacity="0.929"/>
+      <stop offset="1" stop-color="#14309a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1825e2"/>
+      <stop offset="1" stop-color="#1516ac" stop-opacity="0.922"/>
+    </linearGradient>
+    <filter id="Rectangle_6" x="732" y="557" width="431" height="77" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_7" x="785" y="633" width="326" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 225 225">
+      <image width="225" height="225" xlink:href="%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0%20%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%D0%B0-image.jpg"/>
+    </pattern>
+    <clipPath id="clip-Страница_логина">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Страница_логина" data-name="Страница логина" class="cls-1">
+    <rect class="cls-10" width="1920" height="1080"/>
+    <g class="cls-12" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_6-2" data-name="Rectangle 6" class="cls-2" transform="translate(743 562)">
+        <rect class="cls-7" width="409" height="55" rx="24"/>
+        <rect class="cls-8" x="-1" y="-1" width="411" height="57" rx="25"/>
+      </g>
+    </g>
+    <g class="cls-11" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_7-2" data-name="Rectangle 7" class="cls-2" transform="translate(796 638)">
+        <rect class="cls-7" width="304" height="54" rx="27"/>
+        <rect class="cls-8" x="-1" y="-1" width="306" height="56" rx="28"/>
+      </g>
+    </g>
+    <g id="Rectangle_19" data-name="Rectangle 19" class="cls-3" transform="translate(744 454)">
+      <rect class="cls-7" width="409" height="40"/>
+      <rect class="cls-8" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_40" data-name="Rectangle 40" class="cls-3" transform="translate(744 500)">
+      <rect class="cls-7" width="409" height="40"/>
+      <rect class="cls-8" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <text id="ЛОГИН" class="cls-4" transform="translate(906 457)"><tspan x="0.532" y="27">ЛОГИН</tspan></text>
+    <text id="Войти_в_систему" data-name="Войти в систему" class="cls-5" transform="translate(761 569)"><tspan x="93.586" y="27">Войти в систему</tspan></text>
+    <text id="Восстановить_пароль" data-name="Восстановить пароль" class="cls-5" transform="translate(763 645)"><tspan x="64.57" y="27">Восстановить пароль</tspan></text>
+    <text id="ПАРОЛЬ" class="cls-4" transform="translate(898 499)"><tspan x="1.989" y="27">ПАРОЛЬ</tspan></text>
+    <g id="NoPath_копия_2_" data-name="NoPath — копия (2)" class="cls-6" transform="translate(820 171)">
+      <path class="cls-7" d="M 206.9687957763672 245.6832580566406 L 128.7958984375 188.2881927490234 L 128.5 188.0709228515625 L 128.2041015625 188.2881927490234 L 50.03120422363281 245.6832580566406 L 79.89336395263672 152.8074188232422 L 80.00363159179688 152.4645233154297 L 79.71326446533203 152.2513580322266 L 1.525844216346741 94.84562683105469 L 98.16526794433594 94.84562683105469 L 98.52970123291016 94.84562683105469 L 98.64126586914062 94.4986572265625 L 128.5 1.633458137512207 L 158.3587341308594 94.4986572265625 L 158.4703063964844 94.84562683105469 L 158.8347320556641 94.84562683105469 L 255.4741516113281 94.84559631347656 L 177.2867279052734 152.2513580322266 L 176.9963684082031 152.4645233154297 L 177.1066284179688 152.8074188232422 L 206.9687957763672 245.6832580566406 Z"/>
+      <path class="cls-9" d="M 128.5 3.266952514648438 L 98.8941650390625 95.34562683105469 L 3.051727294921875 95.34562683105469 L 80.58987426757812 152.274658203125 L 50.97979736328125 244.3664855957031 L 128.5 187.4505920410156 L 206.0202026367188 244.3664855957031 L 176.4101257324219 152.274658203125 L 253.9482727050781 95.34559631347656 L 158.1058349609375 95.34562683105469 L 128.5 3.266952514648438 M 128.5 -1.52587890625e-05 L 158.8347320556641 94.34562683105469 L 257 94.34559631347656 L 177.5826416015625 152.6543884277344 L 207.9173583984375 247 L 128.5 188.6911926269531 L 49.08262634277344 247 L 79.41737365722656 152.6543884277344 L 0 94.34562683105469 L 98.16526794433594 94.34562683105469 L 128.5 -1.52587890625e-05 Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Skull Evaluation System Platon</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'scripts/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'scripts/jquery.line.js' %}"></script>
+</head>
+<body>
+<header>
+    <div class="top_wrapper">
+        <div class="top_panel">
+            <div class="left_side"></div>
+            <a class="patient" href="#" title="Skull Evaluation System Platon">Skull Evaluation System Platon</a>
+            <div class="right_side"></div>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="auth_block">
+        <img src="{% static 'img/img.png' %}" alt="">
+        <a href="/logout/">Выход</a>
+    </div>
+    {% endif %}
+</header>
+<div class="content">
+    {% block content %}
+    {% endblock %}
+    <div class="overlay_popup"/>
+</div>
+<footer>
+    <a class="copyrights" href="#">&copy; Created by dream-team</a>
+</footer>
+</body>
+</html>

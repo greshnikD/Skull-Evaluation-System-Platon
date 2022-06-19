@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Skull Evaluation System Platon</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/jquery.line.js"></script>
+    <script>
+        $(function () {
+            $('#login').on('click', function (){
+                window.location.replace("cabinet.html");
+            })
+        })
+    </script>
+</head>
+<body>
+<header>
+    <div class="top_wrapper">
+        <div class="top_panel">
+            <div class="left_side"></div>
+            <a class="patient" href="#" title="Skull Evaluation System Platon">Skull Evaluation System Platon</a>
+            <div class="right_side"></div>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <div class="login">
+        <div class="system_name"></div>
+        Логин:<input type="text">
+        Пароль:<input type="password">
+        <button id="login" type="submit">Войти</button>
+    </div>
+</div>
+<footer>
+    <a class="copyrights" href="#">&copy; Created by dream-team</a>
+</footer>
+</body>
+</html>

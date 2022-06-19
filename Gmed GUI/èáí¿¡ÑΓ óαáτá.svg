@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Кабинет_врача);
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #bdb8ec;
+        stroke-linejoin: bevel;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-4, .cls-6, .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        stroke: #fff;
+      }
+
+      .cls-5 {
+        fill: #0c0101;
+        font-size: 25px;
+      }
+
+      .cls-5, .cls-6, .cls-8 {
+        font-family: SegoeUI, Segoe UI;
+      }
+
+      .cls-6 {
+        font-size: 50px;
+      }
+
+      .cls-7 {
+        opacity: 0.27;
+      }
+
+      .cls-8 {
+        font-size: 28px;
+      }
+
+      .cls-9 {
+        stroke: none;
+      }
+
+      .cls-10 {
+        fill: none;
+      }
+
+      .cls-11 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-12 {
+        filter: url(#Rectangle_41);
+      }
+
+      .cls-13 {
+        filter: url(#Rectangle_43);
+      }
+
+      .cls-14 {
+        filter: url(#Rectangle_42);
+      }
+
+      .cls-15 {
+        filter: url(#Rectangle_7);
+      }
+
+      .cls-16 {
+        filter: url(#Rectangle_52);
+      }
+
+      .cls-17 {
+        filter: url(#Rectangle_6);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6884ea" stop-opacity="0.929"/>
+      <stop offset="1" stop-color="#14309a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2a34df" stop-opacity="0.322"/>
+      <stop offset="1" stop-color="#2122a8" stop-opacity="0.388"/>
+    </linearGradient>
+    <filter id="Rectangle_6" x="11" y="618" width="547" height="451" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_52" x="551" y="618" width="1360" height="451" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-4" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1825e2"/>
+      <stop offset="1" stop-color="#1516ac" stop-opacity="0.922"/>
+    </linearGradient>
+    <filter id="Rectangle_7" x="11" y="8" width="547" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_42" x="551" y="8" width="819" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_43" x="1364" y="8" width="547" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_41" x="551" y="84" width="1363" height="534" filterUnits="userSpaceOnUse">
+      <feOffset dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-6"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Кабинет_врача">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Кабинет_врача" data-name="Кабинет врача" class="cls-1">
+    <rect class="cls-11" width="1920" height="1080"/>
+    <g class="cls-17" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_6-2" data-name="Rectangle 6" class="cls-2" transform="translate(22 623)">
+        <rect class="cls-9" width="525" height="429" rx="24"/>
+        <rect class="cls-10" x="-1" y="-1" width="527" height="431" rx="25"/>
+      </g>
+    </g>
+    <g class="cls-16" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_52-2" data-name="Rectangle 52" class="cls-2" transform="translate(562 623)">
+        <rect class="cls-9" width="1338" height="429" rx="24"/>
+        <rect class="cls-10" x="-1" y="-1" width="1340" height="431" rx="25"/>
+      </g>
+    </g>
+    <g class="cls-15" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_7-2" data-name="Rectangle 7" class="cls-3" transform="translate(22 13)">
+        <rect class="cls-9" width="525" height="54" rx="5"/>
+        <rect class="cls-10" x="-1" y="-1" width="527" height="56" rx="6"/>
+      </g>
+    </g>
+    <g class="cls-14" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_42-2" data-name="Rectangle 42" class="cls-3" transform="translate(562 13)">
+        <rect class="cls-9" width="797" height="54" rx="5"/>
+        <rect class="cls-10" x="-1" y="-1" width="799" height="56" rx="6"/>
+      </g>
+    </g>
+    <g class="cls-13" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_43-2" data-name="Rectangle 43" class="cls-3" transform="translate(1375 13)">
+        <rect class="cls-9" width="525" height="54" rx="5"/>
+        <rect class="cls-10" x="-1" y="-1" width="527" height="56" rx="6"/>
+      </g>
+    </g>
+    <g id="Rectangle_19" data-name="Rectangle 19" class="cls-4" transform="translate(22 89)">
+      <rect class="cls-9" width="525" height="512"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="524" height="511"/>
+    </g>
+    <g class="cls-12" transform="matrix(1, 0, 0, 1, 0, 0)">
+      <g id="Rectangle_41-2" data-name="Rectangle 41" class="cls-2" transform="translate(562 89)">
+        <rect class="cls-9" width="1341" height="512" rx="24"/>
+        <rect class="cls-10" x="-1" y="-1" width="1343" height="514" rx="25"/>
+      </g>
+    </g>
+    <g id="Rectangle_40" data-name="Rectangle 40" class="cls-4" transform="translate(1028 108)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_44" data-name="Rectangle 44" class="cls-4" transform="translate(591 108)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_45" data-name="Rectangle 45" class="cls-4" transform="translate(1465 108)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_46" data-name="Rectangle 46" class="cls-4" transform="translate(591 162)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_53" data-name="Rectangle 53" class="cls-4" transform="translate(1028 162)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_56" data-name="Rectangle 56" class="cls-4" transform="translate(591 216)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_57" data-name="Rectangle 57" class="cls-4" transform="translate(1028 216)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_58" data-name="Rectangle 58" class="cls-4" transform="translate(1465 216)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <g id="Rectangle_55" data-name="Rectangle 55" class="cls-4" transform="translate(1466 162)">
+      <rect class="cls-9" width="409" height="40"/>
+      <rect class="cls-10" x="0.5" y="0.5" width="408" height="39"/>
+    </g>
+    <text id="Фамилия" class="cls-5" transform="translate(609 108)"><tspan x="-51.617" y="27">Фамилия</tspan></text>
+    <text id="Организация" class="cls-5" transform="translate(609 162)"><tspan x="-75.378" y="27">Организация</tspan></text>
+    <text id="Номер_телефона" data-name="Номер телефона" class="cls-5" transform="translate(609 216)"><tspan x="-96.545" y="27">Номер телефона</tspan></text>
+    <text id="Почта" class="cls-5" transform="translate(1046 216)"><tspan x="-34.784" y="27">Почта</tspan></text>
+    <text id="Основная_специализация" data-name="Основная специализация" class="cls-5" transform="translate(1500 162)"><tspan x="-147.125" y="27">Основная специализация</tspan></text>
+    <text id="Город" class="cls-5" transform="translate(1047 162)"><tspan x="-34.729" y="27">Город</tspan></text>
+    <text id="Имя" class="cls-5" transform="translate(1047 108)"><tspan x="-24.426" y="27">Имя</tspan></text>
+    <text id="Отчество" class="cls-5" transform="translate(1491 108)"><tspan x="-52.997" y="27">Отчество</tspan></text>
+    <text id="Список_пациентов" data-name="Список пациентов" class="cls-6" transform="translate(155 767)"><tspan x="47.943" y="54">Список </tspan><tspan x="8.673" y="121">пациентов</tspan></text>
+    <text id="Ф" class="cls-6" transform="translate(89 195)"><tspan x="-18.164" y="54">Ф</tspan></text>
+    <image id="Image_2" data-name="Image 2" class="cls-7" width="525" height="514" transform="translate(22 92)" xlink:href="%D0%9A%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82%20%D0%B2%D1%80%D0%B0%D1%87%D0%B0-image.png"/>
+    <text id="Василий" class="cls-8" transform="translate(910 22)"><tspan x="0" y="30">ВАСИЛИЙ</tspan></text>
+    <text id="Докторовский" class="cls-8" transform="translate(154 22)"><tspan x="0" y="30">ДОКТОРОВСКИЙ</tspan></text>
+    <text id="иванович" class="cls-8" transform="translate(1572 22)"><tspan x="0" y="30">ИВАНОВИЧ</tspan></text>
+  </g>
+</svg>

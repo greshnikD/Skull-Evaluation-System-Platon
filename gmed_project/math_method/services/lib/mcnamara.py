@@ -1,0 +1,4 @@
+
+class Mcnamara():
+    name = 'mcnamara'
+

@@ -1,0 +1,701 @@
+html {
+    font: 0.92em/1.4 Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    min-width: 1250px;
+}
+
+header {
+    min-height: 50px;
+    background: lightcyan;
+    position: relative;
+}
+
+footer {
+    min-height: 50px;
+    background: #006cb4;
+}
+
+/* Trick */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+a {
+    color: #006cb4;
+    cursor: pointer;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a.copyrights {
+    float: right;
+    margin: 15px;
+}
+
+.top_wrapper {
+    margin: 0 200px;
+}
+
+.top_panel {
+    width: 570px;
+    height: 50px;
+    margin: auto;
+}
+
+.top_panel div {
+    float: left;
+}
+
+.left_side, .right_side {
+    width: 50px;
+    height: 50px;
+}
+
+.left_side {
+    background: linear-gradient(225deg, #006cb4 50%, lightcyan 50%);
+}
+
+.right_side {
+    background: linear-gradient(135deg, #006cb4 50%, lightcyan 50%);
+}
+
+a.patient {
+    text-decoration: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    background: #006cb4;
+    color: white;
+    position: relative;
+    width: 470px;
+    text-align: center;
+    float: left;
+}
+
+header .menu {
+    float: left;
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    margin-right: -200px;
+    top: 0;
+    left: 0;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 50px;
+    padding: 0 0 0 20px;
+    color: #006cb4;
+}
+
+.login button,
+.patient_gallery button,
+header .menu button,
+header .menu input,
+.dotList div,
+.work_panel div {
+    border: 1px solid lightslategrey;
+    border-radius: 15px;
+    height: 30px;
+    background: #006cb4;
+    color: antiquewhite;
+    margin: 15px 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+}
+
+.login button:hover,
+.patient_gallery button:hover,
+header .menu button:hover,
+header .menu input:hover,
+.dotList div:hover,
+.work_panel div:hover {
+    background: linear-gradient(0deg, #006cb4 0%, #fff 100%);
+    color: black;
+}
+
+.login button:active,
+.patient_gallery button:active,
+header .menu button:active,
+header .menu input:active,
+.dotList div:active,
+.dotList div.selected,
+.work_panel div:active {
+    background: linear-gradient(180deg, #006cb4 0%, #fff 100%);
+    color: black;
+}
+
+.patient_gallery button.disable,
+header .menu button.disable,
+header .menu input.disable,
+.dotList div.disable,
+.work_panel div.disable,
+header .menu button.disable:hover,
+header .menu input.disable:hover,
+.dotList div.disable:hover,
+.work_panel div.disable:hover,
+header .menu button.disable:active,
+header .menu input.disable:active,
+.dotList div.disable:active,
+.work_panel div.disable:active {
+    background: lightslategrey;
+    color: darkgray;
+}
+
+.auth_block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 200px;
+    align-content: center;
+    margin-left: -200px;
+}
+
+.auth_block picture {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+.auth_block a {
+    display: block;
+    float: right;
+    position: relative;
+    text-decoration: none;
+    margin: 10px 15px;
+    overflow: hidden;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.auth_block img {
+    width: 50px;
+    height: 50px;
+}
+
+.content {
+    height: 100vh;
+    margin: 20px;
+}
+
+.cabinet,
+.patient_card,
+.visor {
+    width: 1200px;
+    height: 800px;
+    margin: auto;
+    position: relative;
+    overflow: visible;
+}
+
+.visor .no_image {
+    color: #006cb4;
+    width: 800px;
+    height: 200px;
+    padding: 300px 0;
+    float: left;
+    text-align: center;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.dotList {
+    float: left;
+    width: 90px;
+    height: 800px;
+    display: block;
+    margin: 0;
+    font-size: 11px;
+}
+
+.dotList div {
+    clear: both;
+    margin: 0 0 6px;
+    width: 80px;
+    height: 20px;
+    text-align: left;
+    line-height: 20px;
+    font-size: 15px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.image_wrapper {
+    width: 800px;
+    height: 800px;
+    display: none;
+    float: left;
+    margin: auto;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+
+#image_container {
+    display: block;
+    position: relative;
+}
+
+#image_visor {
+
+}
+
+.dot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: yellow;
+    border: 2px solid yellow;
+    border-radius: 3px;
+    overflow: visible;
+    color: yellow;
+    font-size: 16px;
+}
+
+/*.dot:hover,*/
+.dot.selected {
+    cursor: pointer;
+    border-color: orangered;
+    color: orangered;
+    background-color: orangered;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.work_panel {
+    width: 300px;
+    height: 800px;
+    float: right;
+}
+
+.work_panel div {
+    width: 110px;
+    height: 110px;
+    margin: 0 0 10px 10px;
+    float: left;
+    line-height: 15px;
+}
+
+/*** login ***/
+.login {
+    border: 3px solid #006cb4;
+    border-radius: 5px;
+    width: 200px;
+    padding: 20px;
+    font-weight: bold;
+    color: #006cb4;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    margin: 30vh auto;
+}
+
+.login input {
+    font-size: 16px;
+    border: 1px solid #006cb4;
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+}
+
+.login button {
+    font-size: 16px;
+    height: 30px;
+    line-height: 20px;
+    width: 100px;
+    margin: 10px auto;
+    display: block;
+}
+
+/*** cabinet ***/
+
+#schedule {
+
+}
+
+/*** patient_card ***/
+.patient_card {
+
+}
+
+
+.patient_gallery {
+    width: 700px;
+    float: left;
+    margin-right: -700px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.patient_gallery button{
+    font-size: 16px;
+    height: 30px;
+    line-height: 20px;
+    width: 300px;
+    margin: 10px auto;
+    display: block;
+
+}
+/*** popup ***/
+
+.overlay_popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url("/img/loading-buffering.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.popup {
+    position: relative;
+    z-index: 1000;
+    width: 1000px;
+    height: 800px;
+    padding: 20px;
+    overflow-y: scroll;
+    background: white;
+    margin: 60px auto;
+    display: none;
+}
+
+
+/*** Table ***/
+table {
+    width: 100%;
+}
+
+ol {
+    margin: 0;
+    padding: 0
+}
+
+table td, table th {
+    padding: 0
+}
+
+.c17 {
+    border-right-style: solid;
+    padding: 5pt 5pt 5pt 5pt;
+    border-bottom-color: #000000;
+    border-top-width: 1pt;
+    border-right-width: 0pt;
+    border-left-color: #cccccc;
+    vertical-align: top;
+    border-right-color: #000000;
+    border-left-width: 1pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 0pt;
+    width: 110.4pt;
+    border-top-color: #cccccc;
+    border-bottom-style: solid
+}
+
+.c14 {
+    border-right-style: solid;
+    padding: 0pt 2pt 0pt 2pt;
+    border-bottom-color: #cccccc;
+    border-top-width: 1pt;
+    border-right-width: 1pt;
+    border-left-color: #cccccc;
+    vertical-align: middle;
+    border-right-color: #cccccc;
+    border-left-width: 1pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 1pt;
+    width: 38.3pt;
+    border-top-color: #cccccc;
+    border-bottom-style: solid
+}
+
+.c8 {
+    border-right-style: solid;
+    padding: 0pt 2pt 0pt 2pt;
+    border-bottom-color: #cccccc;
+    border-top-width: 1pt;
+    border-right-width: 1pt;
+    border-left-color: #cccccc;
+    vertical-align: bottom;
+    border-right-color: #cccccc;
+    border-left-width: 1pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 1pt;
+    width: 187.7pt;
+    border-top-color: #cccccc;
+    border-bottom-style: solid
+}
+
+.c6 {
+    border-right-style: solid;
+    padding: 0pt 2pt 0pt 2pt;
+    border-bottom-color: #cccccc;
+    border-top-width: 1pt;
+    border-right-width: 1pt;
+    border-left-color: #cccccc;
+    vertical-align: bottom;
+    border-right-color: #cccccc;
+    border-left-width: 1pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 1pt;
+    width: 110.4pt;
+    border-top-color: #cccccc;
+    border-bottom-style: solid
+}
+
+.c0 {
+    border-right-style: solid;
+    padding: 0pt 2pt 0pt 2pt;
+    border-bottom-color: #cccccc;
+    border-top-width: 1pt;
+    border-right-width: 1pt;
+    border-left-color: #cccccc;
+    vertical-align: bottom;
+    border-right-color: #cccccc;
+    border-left-width: 1pt;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 1pt;
+    width: 38.3pt;
+    border-top-color: #cccccc;
+    border-bottom-style: solid
+}
+
+.c5 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 11pt;
+    font-family: "Arial";
+    font-style: normal
+}
+
+.c2 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: right;
+    height: 11pt
+}
+
+.c3 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+    height: 11pt
+}
+
+.c12 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.c15 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: center
+}
+
+.c10 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: right
+}
+
+.c18 {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-right: auto
+}
+
+.c16 {
+    background-color: #ffffff;
+    max-width: 451.4pt;
+    padding: 72pt 72pt 72pt 72pt
+}
+
+.c9 {
+    height: 15.8pt
+}
+
+.c13 {
+    color: #ff0000
+}
+
+.c4 {
+    color: #0070c0
+}
+
+.c7 {
+    height: 15pt
+}
+
+.c11 {
+    color: #00b050
+}
+
+.c1 {
+    font-weight: 700
+}
+
+.title {
+    padding-top: 0pt;
+    color: #000000;
+    font-size: 26pt;
+    padding-bottom: 3pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+.subtitle {
+    padding-top: 0pt;
+    color: #666666;
+    font-size: 15pt;
+    padding-bottom: 16pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+li {
+    color: #000000;
+    font-size: 11pt;
+    font-family: "Arial"
+}
+
+p {
+    margin: 0;
+    color: #000000;
+    font-size: 11pt;
+    font-family: "Arial"
+}
+
+h1 {
+    padding-top: 20pt;
+    color: #000000;
+    font-size: 20pt;
+    padding-bottom: 6pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h2 {
+    padding-top: 18pt;
+    color: #000000;
+    font-size: 16pt;
+    padding-bottom: 6pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h3 {
+    padding-top: 16pt;
+    color: #434343;
+    font-size: 14pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h4 {
+    padding-top: 14pt;
+    color: #666666;
+    font-size: 12pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h5 {
+    padding-top: 12pt;
+    color: #666666;
+    font-size: 11pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}
+
+h6 {
+    padding-top: 12pt;
+    color: #666666;
+    font-size: 11pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    font-style: italic;
+    orphans: 2;
+    widows: 2;
+    text-align: left
+}

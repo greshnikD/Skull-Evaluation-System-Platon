@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Skull Evaluation System Platon</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/magnific-popup.js"></script>
+    <script>
+        $(function () {
+            $('.popup-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                    titleSrc: function (item) {
+                        return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+                    }
+                }
+            });
+
+            $('#add_research').on('click', function (){
+                window.location.replace("visor.html");
+            })
+        })
+    </script>
+</head>
+<body>
+<header>
+    <div class="menu">
+        Меню
+    </div>
+    <div class="top_wrapper">
+        <div class="top_panel">
+            <div class="left_side"></div>
+            <a class="patient" href="#" title="Skull Evaluation System Platon">Кабинет врача</a>
+            <div class="right_side"></div>
+        </div>
+    </div>
+    <div class="auth_block">
+        <img src="img/img.png" alt="">
+        <a href="cabinet.html">Кабинет врача</a>
+    </div>
+</header>
+<div class="content">
+    <div class="patient_card">
+        <div class="patient_gallery">
+            <div class="popup-gallery">
+                <a href="files/буторина/image-000.jpg" title=""><img src="files/буторина/image-000.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-001.jpg" title=""><img src="files/буторина/image-001.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-002.jpg" title=""><img src="files/буторина/image-002.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-003.jpg" title=""><img src="files/буторина/image-003.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-004.jpg" title=""><img src="files/буторина/image-004.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-005.jpg" title=""><img src="files/буторина/image-005.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-006.jpg" title=""><img src="files/буторина/image-006.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-007.jpg" title=""><img src="files/буторина/image-007.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-008.jpg" title=""><img src="files/буторина/image-008.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-009.jpg" title=""><img src="files/буторина/image-009.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-010.jpg" title=""><img src="files/буторина/image-010.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-011.jpg" title=""><img src="files/буторина/image-011.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-012.jpg" title=""><img src="files/буторина/image-012.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-013.jpg" title=""><img src="files/буторина/image-013.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-014.jpg" title=""><img src="files/буторина/image-014.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-015.jpg" title=""><img src="files/буторина/image-015.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-016.jpg" title=""><img src="files/буторина/image-016.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-017.jpg" title=""><img src="files/буторина/image-017.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-018.jpg" title=""><img src="files/буторина/image-018.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-019.jpg" title=""><img src="files/буторина/image-019.jpg" width="75"
+                                                                     height="75"></a>
+                <a href="files/буторина/image-020.jpg" title=""><img src="files/буторина/image-020.jpg" width="75"
+                                                                     height="75"></a>
+            </div>
+            <button id="add_research">Добавить исследование</button>
+        </div>
+
+        <div class="patient_data">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            clip-path: url(#clip-Страница_2D_исследования);
+                        }
+
+                        .cls-2, .cls-6, .cls-7 {
+                            stroke: #bdb8ec;
+                        }
+
+                        .cls-2, .cls-4, .cls-6, .cls-7 {
+                            stroke-linejoin: bevel;
+                            stroke-width: 2px;
+                        }
+
+                        .cls-2, .cls-8 {
+                            opacity: 0.5;
+                            fill: url(#linear-gradient-2);
+                        }
+
+                        .cls-10, .cls-11, .cls-14, .cls-3, .cls-9 {
+                            fill: #fff;
+                        }
+
+                        .cls-12, .cls-3 {
+                            font-size: 20px;
+                        }
+
+                        .cls-10, .cls-12, .cls-15, .cls-3, .cls-9 {
+                            font-family: SegoeUI, Segoe UI;
+                        }
+
+                        .cls-4 {
+                            fill: #000002;
+                        }
+
+                        .cls-11, .cls-4, .cls-5 {
+                            stroke: #fff;
+                        }
+
+                        .cls-5 {
+                            stroke-linejoin: round;
+                            fill: url(#linear-gradient-3);
+                        }
+
+                        .cls-6 {
+                            fill: url(#linear-gradient-4);
+                        }
+
+                        .cls-7 {
+                            fill: url(#linear-gradient-9);
+                        }
+
+                        .cls-9 {
+                            font-size: 28px;
+                        }
+
+                        .cls-10 {
+                            font-size: 34px;
+                        }
+
+                        .cls-13 {
+                            fill: #4c38cc;
+                        }
+
+                        .cls-14, .cls-16 {
+                            stroke: #707070;
+                        }
+
+                        .cls-15 {
+                            font-size: 22px;
+                        }
+
+                        .cls-16, .cls-18 {
+                            fill: none;
+                        }
+
+                        .cls-17, .cls-19, .cls-20 {
+                            stroke: none;
+                        }
+
+                        .cls-19 {
+                            fill: #bdb8ec;
+                        }
+
+                        .cls-20 {
+                            fill: #707070;
+                        }
+
+                        .cls-21 {
+                            fill: url(#linear-gradient);
+                        }
+
+                        .cls-22 {
+                            filter: url(#Path_2);
+                        }
+
+                        .cls-23 {
+                            filter: url(#Rectangle_18);
+                        }
+
+                        .cls-24 {
+                            filter: url(#Результаты_диагностики);
+                        }
+
+                        .cls-25 {
+                            filter: url(#Path_1);
+                        }
+
+                        .cls-26 {
+                            filter: url(#Rectangle_9);
+                        }
+
+                        .cls-27 {
+                            filter: url(#Rectangle_8);
+                        }
+
+                        .cls-28 {
+                            filter: url(#Rectangle_7);
+                        }
+
+                        .cls-29 {
+                            filter: url(#Rectangle_6);
+                        }
+
+                        .cls-30 {
+                            filter: url(#Rectangle_4);
+                        }
+                    </style>
+                    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#6884ea" stop-opacity="0.929"/>
+                        <stop offset="1" stop-color="#14309a"/>
+                    </linearGradient>
+                    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#3232ec"/>
+                        <stop offset="1" stop-color="#6465fd" stop-opacity="0.922"/>
+                    </linearGradient>
+                    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#292682"/>
+                        <stop offset="1" stop-color="#2d2dd6" stop-opacity="0.62"/>
+                    </linearGradient>
+                    <linearGradient id="linear-gradient-4" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#1825e2"/>
+                        <stop offset="1" stop-color="#1516ac" stop-opacity="0.922"/>
+                    </linearGradient>
+                    <filter id="Rectangle_4" x="3" y="40" width="285" height="70" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Rectangle_6" x="273" y="4" width="268" height="106" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-2"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-2"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Rectangle_7" x="526" y="40" width="273" height="70" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-3"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-3"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Rectangle_8" x="784" y="40" width="287" height="70" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-4"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-4"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <linearGradient id="linear-gradient-9" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#3232ec"/>
+                        <stop offset="1" stop-color="#6465fd"/>
+                    </linearGradient>
+                    <filter id="Rectangle_9" x="1067" y="5" width="309" height="104" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-5"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-5"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Path_1" x="1362" y="40" width="256" height="70" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-6"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-6"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Результаты_диагностики" x="1639" y="53" width="243" height="45"
+                            filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-7"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-7"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Rectangle_18" x="1067" y="5" width="309" height="104" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-8"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-8"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <filter id="Path_2" x="1363" y="40" width="256" height="70" filterUnits="userSpaceOnUse">
+                        <feOffset dy="6" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur-9"/>
+                        <feFlood flood-opacity="0.161"/>
+                        <feComposite operator="in" in2="blur-9"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+                    <clipPath id="clip-Страница_2D_исследования">
+                        <rect width="1920" height="1080"/>
+                    </clipPath>
+                </defs>
+                <text id="Поиск_пациента-2" data-name="Поиск пациента" class="cls-12" transform="translate(1093 108)">
+                    <tspan x="0" y="22">Поиск пациента</tspan>
+                </text>
+                <g id="Polygon_2" data-name="Polygon 2" class="cls-13" transform="translate(1860.5 110)">
+                    <path class="cls-17"
+                          d="M 22.28765106201172 26.5 L 5.712338447570801 26.5 L 0.5857797265052795 10.50258922576904 L 14 0.6210231184959412 L 27.41422080993652 10.50258922576904 L 22.28765106201172 26.5 Z"/>
+                    <path class="cls-20"
+                          d="M 14 1.242036819458008 L 1.171554565429688 10.69209289550781 L 6.077154159545898 26 L 21.92283248901367 26 L 26.82844352722168 10.69209098815918 L 14 1.242036819458008 M 14 0 L 28 10.31307983398438 L 22.65246963500977 27 L 5.34752082824707 27 L 0 10.31307983398438 L 14 0 Z"/>
+                </g>
+                <g id="Rectangle_20" data-name="Rectangle 20" class="cls-14" transform="translate(1088 153)">
+                    <rect class="cls-17" width="278" height="39"/>
+                    <rect class="cls-18" x="0.5" y="0.5" width="277" height="38"/>
+                </g>
+                <g id="Rectangle_21" data-name="Rectangle 21" class="cls-14" transform="translate(1617 153)">
+                    <rect class="cls-17" width="276" height="39"/>
+                    <rect class="cls-18" x="0.5" y="0.5" width="275" height="38"/>
+                </g>
+                <g id="Rectangle_22" data-name="Rectangle 22" class="cls-14" transform="translate(1373 153)">
+                    <rect class="cls-17" width="234" height="39"/>
+                    <rect class="cls-18" x="0.5" y="0.5" width="233" height="38"/>
+                </g>
+                <text id="Иванов-2" data-name="Иванов" class="cls-12" transform="translate(1108 160)">
+                    <tspan x="0" y="22">Буторина</tspan>
+                </text>
+                <text id="Иван-2" data-name="Иван" class="cls-12" transform="translate(1388 159)">
+                    <tspan x="0" y="22">Олеся</tspan>
+                </text>
+                <text id="Иванович-2" data-name="Иванович" class="cls-12" transform="translate(1640 160)">
+                    <tspan x="0" y="22">Александровна</tspan>
+                </text>
+                <g id="Rectangle_23" data-name="Rectangle 23" class="cls-14" transform="translate(1088 202)">
+                    <path class="cls-17"
+                          d="M0,0H805a0,0,0,0,1,0,0V826a24,24,0,0,1-24,24H24A24,24,0,0,1,0,826V0A0,0,0,0,1,0,0Z"/>
+                    <path class="cls-18"
+                          d="M.5.5h804a0,0,0,0,1,0,0V826A23.5,23.5,0,0,1,781,849.5H24A23.5,23.5,0,0,1,.5,826V.5A0,0,0,0,1,.5.5Z"/>
+                </g>
+                <text id="Тип_данных:_Номер_телефона_Электронная_почта_Допустимое_время_для_звонков_Возраст_Статус_Совершеннолетний_ребенок_Находится_на_лечении_Лечащий_врач_Незаконченное_лечение_Срок_лечения_Диагноз_первого_посещения_Планируемый_срок_реабилитации_Установленное_2"
+                      data-name="Тип данных:
+Номер телефона
+Электронная почта
+Допустимое время для звонков
+Возраст
+Статус (Совершеннолетний, ребенок)
+Находится на лечении
+Лечащий врач
+Незаконченное лечение
+Срок лечения
+Диагноз первого посещения
+Планируемый срок реабилитации
+Установленное " class="cls-15" transform="translate(1289 243)">
+                    <tspan x="-61.064" y="0">Тип данных:</tspan>
+                    <tspan x="-84.96" y="55">Номер телефона</tspan>
+                    <tspan x="-97.174" y="110">Электронная почта</tspan>
+                    <tspan x="-160.601" y="165">Допустимое время для звонков</tspan>
+                    <tspan x="-39.311" y="220">Возраст</tspan>
+                    <tspan x="-189.675" y="275">Статус (Совершеннолетний, ребенок)</tspan>
+                    <tspan x="-113.051" y="330">Находится на лечении</tspan>
+                    <tspan x="-73.933" y="385">Лечащий врач</tspan>
+                    <tspan x="-124.207" y="440">Незаконченное лечение</tspan>
+                    <tspan x="-69.991" y="495">Срок лечения</tspan>
+                    <tspan x="-145.766" y="550">Диагноз первого посещения</tspan>
+                    <tspan x="-173.18" y="605">Планируемый срок реабилитации</tspan>
+                    <tspan x="-152.937" y="660">Установленное оборудование</tspan>
+                    <tspan x="-166.611" y="715">Наличие аллергических реакций</tspan>
+                    <tspan x="0" y="770"></tspan>
+                    <tspan x="0" y="825"></tspan>
+                    <tspan x="0" y="880"></tspan>
+                    <tspan x="0" y="935"></tspan>
+                </text>
+                <text id="Значения_8-999-888-77-66_ивановИван_почтаРоссии.рф_10:00-18:00_27_Совершеннолетний_Да_Попов_Алексей_Владимирович_Да_1_месяц_Дистализация_дистальных_дисталей_11_меесяцев_Десневые_импланты_дуга_БутаноМетаЗол_2"
+                      data-name="Значения
+8-999-888-77-66
+ивановИван@почтаРоссии.рф
+10:00-18:00
+27
+Совершеннолетний
+Да
+Попов Алексей Владимирович
+Да
+1 месяц
+Дистализация дистальных дисталей
+11 меесяцев
+Десневые импланты, дуга
+БутаноМетаЗол
+
+
+
+" class="cls-15" transform="translate(1681 243)">
+                    <tspan x="-48.125" y="0">Значения</tspan>
+                    <tspan x="-82.822" y="55">8-999-888-77-66</tspan>
+                    <tspan x="-154.021" y="110">buter@mail.ru</tspan>
+                    <tspan x="-56.606" y="165">10:00-18:00</tspan>
+                    <tspan x="-11.859" y="220">21</tspan>
+                    <tspan x="-100.187" y="275">Совершеннолетний</tspan>
+                    <tspan x="-13.224" y="330">Да</tspan>
+                    <tspan x="-155.837" y="385">Попов Алексей Владимирович</tspan>
+                    <tspan x="-13.224" y="440">Да</tspan>
+                    <tspan x="-39.633" y="495">1 месяц</tspan>
+                    <tspan x="-180.12" y="550">Дистализация дистальных дисталей</tspan>
+                    <tspan x="-62.896" y="605">11 меесяцев</tspan>
+                    <tspan x="-130.023" y="660">Десневые импланты, дуга</tspan>
+                    <tspan x="-78.434" y="715">БутаноМетаЗол</tspan>
+                    <tspan x="0" y="770"></tspan>
+                    <tspan x="0" y="825"></tspan>
+                    <tspan x="0" y="880"></tspan>
+                    <tspan x="0" y="935"></tspan>
+                </text>
+                <line id="Line_17" data-name="Line 17" class="cls-16" y2="850" transform="translate(1489.5 202.5)"/>
+                <line id="Line_18" data-name="Line 18" class="cls-16" x2="805" transform="translate(1088.5 256.5)"/>
+                <line id="Line_19" data-name="Line 19" class="cls-16" x2="805" transform="translate(1088.5 320.5)"/>
+                <line id="Line_20" data-name="Line 20" class="cls-16" x2="805" transform="translate(1088.5 384.5)"/>
+                <line id="Line_21" data-name="Line 21" class="cls-16" x2="805" transform="translate(1083.5 429.5)"/>
+                <line id="Line_22" data-name="Line 22" class="cls-16" x2="805" transform="translate(1087 485.5)"/>
+                <line id="Line_23" data-name="Line 23" class="cls-16" x2="805" transform="translate(1093 541.5)"/>
+                <line id="Line_24" data-name="Line 24" class="cls-16" x2="805" transform="translate(1088.5 586.5)"/>
+                <line id="Line_25" data-name="Line 25" class="cls-16" x2="805" transform="translate(1088.5 640.5)"/>
+                <line id="Line_26" data-name="Line 26" class="cls-16" x2="805" transform="translate(1088.5 704.5)"/>
+                <line id="Line_27" data-name="Line 27" class="cls-16" x2="805" transform="translate(1087 768.5)"/>
+                <line id="Line_28" data-name="Line 28" class="cls-16" x2="805" transform="translate(1087.5 813.5)"/>
+                <line id="Line_29" data-name="Line 29" class="cls-16" x2="805" transform="translate(1088.5 877.5)"/>
+                <line id="Line_30" data-name="Line 30" class="cls-16" x2="805" transform="translate(1088.5 922.5)"/>
+                <line id="Line_31" data-name="Line 31" class="cls-16" x2="805" transform="translate(1088 976.5)"/>
+            </svg>
+
+        </div>
+    </div>
+</div>
+<footer>
+    <a class="copyrights" href="#">&copy; Created by dream-team</a>
+</footer>
+</body>
+</html>

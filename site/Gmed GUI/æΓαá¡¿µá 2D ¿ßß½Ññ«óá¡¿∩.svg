@@ -1,0 +1,580 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080"
+     viewBox="0 0 1920 1080">
+    <defs>
+        <style>
+            .cls-1 {
+            clip-path: url(#clip-Страница_2D_исследования);
+            }
+
+            .cls-2, .cls-6, .cls-7 {
+            stroke: #bdb8ec;
+            }
+
+            .cls-2, .cls-4, .cls-6, .cls-7 {
+            stroke-linejoin: bevel;
+            stroke-width: 2px;
+            }
+
+            .cls-2, .cls-8 {
+            opacity: 0.5;
+            fill: url(#linear-gradient-2);
+            }
+
+            .cls-10, .cls-11, .cls-14, .cls-3, .cls-9 {
+            fill: #fff;
+            }
+
+            .cls-12, .cls-3 {
+            font-size: 20px;
+            }
+
+            .cls-10, .cls-12, .cls-15, .cls-3, .cls-9 {
+            font-family: SegoeUI, Segoe UI;
+            }
+
+            .cls-4 {
+            fill: #000002;
+            }
+
+            .cls-11, .cls-4, .cls-5 {
+            stroke: #fff;
+            }
+
+            .cls-5 {
+            stroke-linejoin: round;
+            fill: url(#linear-gradient-3);
+            }
+
+            .cls-6 {
+            fill: url(#linear-gradient-4);
+            }
+
+            .cls-7 {
+            fill: url(#linear-gradient-9);
+            }
+
+            .cls-9 {
+            font-size: 28px;
+            }
+
+            .cls-10 {
+            font-size: 34px;
+            }
+
+            .cls-13 {
+            fill: #4c38cc;
+            }
+
+            .cls-14, .cls-16 {
+            stroke: #707070;
+            }
+
+            .cls-15 {
+            font-size: 22px;
+            }
+
+            .cls-16, .cls-18 {
+            fill: none;
+            }
+
+            .cls-17, .cls-19, .cls-20 {
+            stroke: none;
+            }
+
+            .cls-19 {
+            fill: #bdb8ec;
+            }
+
+            .cls-20 {
+            fill: #707070;
+            }
+
+            .cls-21 {
+            fill: url(#linear-gradient);
+            }
+
+            .cls-22 {
+            filter: url(#Path_2);
+            }
+
+            .cls-23 {
+            filter: url(#Rectangle_18);
+            }
+
+            .cls-24 {
+            filter: url(#Результаты_диагностики);
+            }
+
+            .cls-25 {
+            filter: url(#Path_1);
+            }
+
+            .cls-26 {
+            filter: url(#Rectangle_9);
+            }
+
+            .cls-27 {
+            filter: url(#Rectangle_8);
+            }
+
+            .cls-28 {
+            filter: url(#Rectangle_7);
+            }
+
+            .cls-29 {
+            filter: url(#Rectangle_6);
+            }
+
+            .cls-30 {
+            filter: url(#Rectangle_4);
+            }
+        </style>
+        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#6884ea" stop-opacity="0.929"/>
+            <stop offset="1" stop-color="#14309a"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#3232ec"/>
+            <stop offset="1" stop-color="#6465fd" stop-opacity="0.922"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#292682"/>
+            <stop offset="1" stop-color="#2d2dd6" stop-opacity="0.62"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-4" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#1825e2"/>
+            <stop offset="1" stop-color="#1516ac" stop-opacity="0.922"/>
+        </linearGradient>
+        <filter id="Rectangle_4" x="3" y="40" width="285" height="70" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Rectangle_6" x="273" y="4" width="268" height="106" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-2"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-2"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Rectangle_7" x="526" y="40" width="273" height="70" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-3"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-3"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Rectangle_8" x="784" y="40" width="287" height="70" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-4"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-4"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <linearGradient id="linear-gradient-9" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#3232ec"/>
+            <stop offset="1" stop-color="#6465fd"/>
+        </linearGradient>
+        <filter id="Rectangle_9" x="1067" y="5" width="309" height="104" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-5"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-5"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Path_1" x="1362" y="40" width="256" height="70" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-6"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-6"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Результаты_диагностики" x="1639" y="53" width="243" height="45" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-7"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-7"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Rectangle_18" x="1067" y="5" width="309" height="104" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-8"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-8"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Path_2" x="1363" y="40" width="256" height="70" filterUnits="userSpaceOnUse">
+            <feOffset dy="6" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur-9"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur-9"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <clipPath id="clip-Страница_2D_исследования">
+            <rect width="1920" height="1080"/>
+        </clipPath>
+    </defs>
+    <g id="Страница_2D_исследования" data-name="Страница 2D исследования" class="cls-1">
+        <rect class="cls-21" width="1920" height="1080"/>
+        <g id="Rectangle_17" data-name="Rectangle 17" class="cls-2" transform="translate(1617 45)">
+            <path class="cls-17" d="M0,0H263a24,24,0,0,1,24,24V48a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
+            <path class="cls-18" d="M-1-1H263a25,25,0,0,1,25,25V49a0,0,0,0,1,0,0H-1a0,0,0,0,1,0,0V-1A0,0,0,0,1-1-1Z"/>
+        </g>
+        <text id="Панель_управления" data-name="Панель управления" class="cls-3" transform="translate(104 549)">
+            <tspan x="0" y="0">Панель управления</tspan>
+        </text>
+        <g id="Rectangle_2" data-name="Rectangle 2" class="cls-4" transform="translate(14 93)">
+            <path class="cls-17"
+                  d="M0,0H1046a0,0,0,0,1,0,0V949a24,24,0,0,1-24,24H24A24,24,0,0,1,0,949V0A0,0,0,0,1,0,0Z"/>
+            <path class="cls-18"
+                  d="M-1-1H1047a0,0,0,0,1,0,0V949a25,25,0,0,1-25,25H24A25,25,0,0,1-1,949V-1A0,0,0,0,1-1-1Z"/>
+        </g>
+        <path id="Rectangle_3" data-name="Rectangle 3" class="cls-5"
+              d="M0,0H827a0,0,0,0,1,0,0V949a24,24,0,0,1-24,24H24A24,24,0,0,1,0,949V0A0,0,0,0,1,0,0Z"
+              transform="translate(1077 93)"/>
+        <g class="cls-30" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Rectangle_4-2" data-name="Rectangle 4" class="cls-6" transform="translate(14 45)">
+                <path class="cls-17" d="M24,0H263a0,0,0,0,1,0,0V48a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V24A24,24,0,0,1,24,0Z"/>
+                <path class="cls-18"
+                      d="M24-1H264a0,0,0,0,1,0,0V49a0,0,0,0,1,0,0H-1a0,0,0,0,1,0,0V24A25,25,0,0,1,24-1Z"/>
+            </g>
+        </g>
+        <g id="Rectangle_5" data-name="Rectangle 5" class="cls-2" transform="translate(1617 45)">
+            <path class="cls-17" d="M0,0H263a24,24,0,0,1,24,24V48a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
+            <path class="cls-18" d="M-1-1H263a25,25,0,0,1,25,25V49a0,0,0,0,1,0,0H-1a0,0,0,0,1,0,0V-1A0,0,0,0,1-1-1Z"/>
+        </g>
+        <g class="cls-29" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Rectangle_6-2" data-name="Rectangle 6" class="cls-6" transform="translate(284 9)">
+                <path class="cls-17"
+                      d="M24,0H222a24,24,0,0,1,24,24V84a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V24A24,24,0,0,1,24,0Z"/>
+                <path class="cls-18"
+                      d="M24-1H222a25,25,0,0,1,25,25V85a0,0,0,0,1,0,0H-1a0,0,0,0,1,0,0V24A25,25,0,0,1,24-1Z"/>
+            </g>
+        </g>
+        <g class="cls-28" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Rectangle_7-2" data-name="Rectangle 7" class="cls-6" transform="translate(537 45)">
+                <rect class="cls-17" width="251" height="48"/>
+                <rect class="cls-18" x="-1" y="-1" width="253" height="50"/>
+            </g>
+        </g>
+        <g class="cls-27" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Rectangle_8-2" data-name="Rectangle 8" class="cls-6" transform="translate(795 45)">
+                <path class="cls-17" d="M0,0H241a24,24,0,0,1,24,24V48a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
+                <path class="cls-18"
+                      d="M-1-1H241a25,25,0,0,1,25,25V49a0,0,0,0,1,0,0H-1a0,0,0,0,1,0,0V-1A0,0,0,0,1-1-1Z"/>
+            </g>
+        </g>
+        <g class="cls-26" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <path id="Rectangle_9-2" data-name="Rectangle 9" class="cls-7"
+                  d="M24,0H265a24,24,0,0,1,24,24V84a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V24A24,24,0,0,1,24,0Z"
+                  transform="translate(1077 9)"/>
+        </g>
+        <g class="cls-25" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Path_1-2" data-name="Path 1" class="cls-8" transform="translate(1373 45)">
+                <path class="cls-17"
+                      d="M 235 49 L 234 49 L 0 49 L -1 49 L -1 48 L -1 0 L -1 -1 L 0 -1 L 234 -1 L 235 -1 L 235 0 L 235 33.3125 L 235 48 L 235 49 Z"/>
+                <path class="cls-19"
+                      d="M 0 0 L 0 48 L 234 48 L 234 0 L 0 0 M -2 -2 L 236 -2 L 236 50 L -2 50 L -2 -2 Z"/>
+            </g>
+        </g>
+        <text id="Карта_пациента" data-name="Карта пациента" class="cls-9" transform="translate(1103 33)">
+            <tspan x="0" y="30">КАРТА ПАЦИЕНТА</tspan>
+        </text>
+        <g class="cls-24" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <text id="Результаты_диагностики-2" data-name="Результаты диагностики" class="cls-3"
+                  transform="translate(1648 56)">
+                <tspan x="0" y="22">Результаты диагностики</tspan>
+            </text>
+        </g>
+        <text id="_2D_-_Анализ" data-name="2D - Анализ" class="cls-10" transform="translate(282 27)">
+            <tspan x="25.465" y="37">2D - Анализ</tspan>
+        </text>
+        <text id="главное_меню" data-name="главное меню" class="cls-3" transform="translate(76 54)">
+            <tspan x="0" y="22">Главное Меню</tspan>
+        </text>
+        <text id="_3D_-_анализ" data-name="3D - анализ" class="cls-3" transform="translate(593 54)">
+            <tspan x="0" y="22">3D - Анализ</tspan>
+        </text>
+        <text id="_4D_-_анализ" data-name="4D - анализ" class="cls-3" transform="translate(851 53)">
+            <tspan x="0" y="22">4D - Анализ</tspan>
+        </text>
+        <g id="Rectangle_10" data-name="Rectangle 10" class="cls-11" transform="translate(1088 103)">
+            <rect class="cls-17" width="805" height="40"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="804" height="39"/>
+        </g>
+        <text id="Поиск_пациента" data-name="Поиск пациента" class="cls-12" transform="translate(1093 108)">
+            <tspan x="0" y="22">Поиск пациента</tspan>
+        </text>
+        <g id="Polygon_1" data-name="Polygon 1" class="cls-13" transform="translate(1860.5 110)">
+            <path class="cls-17"
+                  d="M 22.28766250610352 26.5 L 5.712338447570801 26.5 L 0.5857797265052795 10.50258922576904 L 14 0.6210231184959412 L 27.41422080993652 10.50258922576904 L 22.28766250610352 26.5 Z"/>
+            <path class="cls-20"
+                  d="M 14 1.242036819458008 L 1.171554565429688 10.69209289550781 L 6.077154159545898 26 L 21.9228458404541 26 L 26.82844543457031 10.69209289550781 L 14 1.242036819458008 M 14 0 L 28 10.31307983398438 L 22.65248107910156 27 L 5.34752082824707 27 L 0 10.31307983398438 L 14 0 Z"/>
+        </g>
+        <g id="Rectangle_12" data-name="Rectangle 12" class="cls-14" transform="translate(1088 153)">
+            <rect class="cls-17" width="278" height="39"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="277" height="38"/>
+        </g>
+        <g id="Rectangle_13" data-name="Rectangle 13" class="cls-14" transform="translate(1617 153)">
+            <rect class="cls-17" width="276" height="39"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="275" height="38"/>
+        </g>
+        <g id="Rectangle_14" data-name="Rectangle 14" class="cls-14" transform="translate(1373 153)">
+            <rect class="cls-17" width="234" height="39"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="233" height="38"/>
+        </g>
+        <text id="Иванов" class="cls-12" transform="translate(1108 160)">
+            <tspan x="0" y="22">Иванов</tspan>
+        </text>
+        <text id="Иван" class="cls-12" transform="translate(1388 159)">
+            <tspan x="0" y="22">Иван</tspan>
+        </text>
+        <text id="Иванович" class="cls-12" transform="translate(1640 160)">
+            <tspan x="0" y="22">Иванович</tspan>
+        </text>
+        <g id="Rectangle_15" data-name="Rectangle 15" class="cls-14" transform="translate(1088 202)">
+            <path class="cls-17"
+                  d="M0,0H805a0,0,0,0,1,0,0V826a24,24,0,0,1-24,24H24A24,24,0,0,1,0,826V0A0,0,0,0,1,0,0Z"/>
+            <path class="cls-18"
+                  d="M.5.5h804a0,0,0,0,1,0,0V826A23.5,23.5,0,0,1,781,849.5H24A23.5,23.5,0,0,1,.5,826V.5A0,0,0,0,1,.5.5Z"/>
+        </g>
+        <text id="Тип_данных:_Номер_телефона_Электронная_почта_Допустимое_время_для_звонков_Возраст_Статус_Совершеннолетний_ребенок_Находится_на_лечении_Лечащий_врач_Незаконченное_лечение_Срок_лечения_Диагноз_первого_посещения_Планируемый_срок_реабилитации_Установленное_"
+              data-name="Тип данных:
+Номер телефона
+Электронная почта
+Допустимое время для звонков
+Возраст
+Статус (Совершеннолетний, ребенок)
+Находится на лечении
+Лечащий врач
+Незаконченное лечение
+Срок лечения
+Диагноз первого посещения
+Планируемый срок реабилитации
+Установленное " class="cls-15" transform="translate(1289 243)">
+            <tspan x="-61.064" y="0">Тип данных:</tspan>
+            <tspan x="-84.96" y="55">Номер телефона</tspan>
+            <tspan x="-97.174" y="110">Электронная почта</tspan>
+            <tspan x="-160.601" y="165">Допустимое время для звонков</tspan>
+            <tspan x="-39.311" y="220">Возраст</tspan>
+            <tspan x="-189.675" y="275">Статус (Совершеннолетний, ребенок)</tspan>
+            <tspan x="-113.051" y="330">Находится на лечении</tspan>
+            <tspan x="-73.933" y="385">Лечащий врач</tspan>
+            <tspan x="-124.207" y="440">Незаконченное лечение</tspan>
+            <tspan x="-69.991" y="495">Срок лечения</tspan>
+            <tspan x="-145.766" y="550">Диагноз первого посещения</tspan>
+            <tspan x="-173.18" y="605">Планируемый срок реабилитации</tspan>
+            <tspan x="-152.937" y="660">Установленное оборудование</tspan>
+            <tspan x="-166.611" y="715">Наличие аллергических реакций</tspan>
+            <tspan x="0" y="770"></tspan>
+            <tspan x="0" y="825"></tspan>
+            <tspan x="0" y="880"></tspan>
+            <tspan x="0" y="935"></tspan>
+        </text>
+        <text id="Значения_8-999-888-77-66_ивановИван_почтаРоссии.рф_10:00-18:00_27_Совершеннолетний_Да_Попов_Алексей_Владимирович_Да_1_месяц_Дистализация_дистальных_дисталей_11_меесяцев_Десневые_импланты_дуга_БутаноМетаЗол_"
+              data-name="Значения
+8-999-888-77-66
+ивановИван@почтаРоссии.рф
+10:00-18:00
+27
+Совершеннолетний
+Да
+Попов Алексей Владимирович
+Да
+1 месяц
+Дистализация дистальных дисталей
+11 меесяцев
+Десневые импланты, дуга
+БутаноМетаЗол
+
+
+
+" class="cls-15" transform="translate(1681 243)">
+            <tspan x="-48.125" y="0">Значения</tspan>
+            <tspan x="-82.822" y="55">8-999-888-77-66</tspan>
+            <tspan x="-154.021" y="110">ивановИван@почтаРоссии.рф</tspan>
+            <tspan x="-56.606" y="165">10:00-18:00</tspan>
+            <tspan x="-11.859" y="220">27</tspan>
+            <tspan x="-100.187" y="275">Совершеннолетний</tspan>
+            <tspan x="-13.224" y="330">Да</tspan>
+            <tspan x="-155.837" y="385">Попов Алексей Владимирович</tspan>
+            <tspan x="-13.224" y="440">Да</tspan>
+            <tspan x="-39.633" y="495">1 месяц</tspan>
+            <tspan x="-180.12" y="550">Дистализация дистальных дисталей</tspan>
+            <tspan x="-62.896" y="605">11 меесяцев</tspan>
+            <tspan x="-130.023" y="660">Десневые импланты, дуга</tspan>
+            <tspan x="-78.434" y="715">БутаноМетаЗол</tspan>
+            <tspan x="0" y="770"></tspan>
+            <tspan x="0" y="825"></tspan>
+            <tspan x="0" y="880"></tspan>
+            <tspan x="0" y="935"></tspan>
+        </text>
+        <line id="Line_1" data-name="Line 1" class="cls-16" y2="850" transform="translate(1489.5 202.5)"/>
+        <line id="Line_2" data-name="Line 2" class="cls-16" x2="805" transform="translate(1088.5 256.5)"/>
+        <line id="Line_3" data-name="Line 3" class="cls-16" x2="805" transform="translate(1088.5 320.5)"/>
+        <line id="Line_4" data-name="Line 4" class="cls-16" x2="805" transform="translate(1088.5 384.5)"/>
+        <line id="Line_5" data-name="Line 5" class="cls-16" x2="805" transform="translate(1083.5 429.5)"/>
+        <line id="Line_6" data-name="Line 6" class="cls-16" x2="805" transform="translate(1087 485.5)"/>
+        <line id="Line_16" data-name="Line 16" class="cls-16" x2="805" transform="translate(1093 541.5)"/>
+        <line id="Line_8" data-name="Line 8" class="cls-16" x2="805" transform="translate(1088.5 586.5)"/>
+        <line id="Line_9" data-name="Line 9" class="cls-16" x2="805" transform="translate(1088.5 640.5)"/>
+        <line id="Line_10" data-name="Line 10" class="cls-16" x2="805" transform="translate(1088.5 704.5)"/>
+        <line id="Line_11" data-name="Line 11" class="cls-16" x2="805" transform="translate(1087 768.5)"/>
+        <line id="Line_12" data-name="Line 12" class="cls-16" x2="805" transform="translate(1087.5 813.5)"/>
+        <line id="Line_13" data-name="Line 13" class="cls-16" x2="805" transform="translate(1088.5 877.5)"/>
+        <line id="Line_15" data-name="Line 15" class="cls-16" x2="805" transform="translate(1088.5 922.5)"/>
+        <line id="Line_14" data-name="Line 14" class="cls-16" x2="805" transform="translate(1088 976.5)"/>
+        <path id="Rectangle_16" data-name="Rectangle 16" class="cls-5"
+              d="M0,0H827a0,0,0,0,1,0,0V949a24,24,0,0,1-24,24H24A24,24,0,0,1,0,949V0A0,0,0,0,1,0,0Z"
+              transform="translate(1077 93)"/>
+        <g class="cls-23" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <path id="Rectangle_18-2" data-name="Rectangle 18" class="cls-7"
+                  d="M24,0H265a24,24,0,0,1,24,24V84a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V24A24,24,0,0,1,24,0Z"
+                  transform="translate(1077 9)"/>
+        </g>
+        <g class="cls-22" transform="matrix(1, 0, 0, 1, 0, 0)">
+            <g id="Path_2-2" data-name="Path 2" class="cls-8" transform="translate(1374 45)">
+                <path class="cls-17"
+                      d="M 235 49 L 234 49 L 0 49 L -1 49 L -1 48 L -1 0 L -1 -1 L 0 -1 L 234 -1 L 235 -1 L 235 0 L 235 33.3125 L 235 48 L 235 49 Z"/>
+                <path class="cls-19"
+                      d="M 0 0 L 0 48 L 234 48 L 234 0 L 0 0 M -2 -2 L 236 -2 L 236 50 L -2 50 L -2 -2 Z"/>
+            </g>
+        </g>
+        <text id="Карта_пациента-2" data-name="Карта пациента" class="cls-9" transform="translate(1102 32)">
+            <tspan x="0" y="30">КАРТА ПАЦИЕНТА</tspan>
+        </text>
+        <text id="Режим_диагностики" data-name="Режим диагностики" class="cls-3" transform="translate(1397 56)">
+            <tspan x="0" y="22">Режим диагностики</tspan>
+        </text>
+        <g id="Rectangle_19" data-name="Rectangle 19" class="cls-11" transform="translate(1088 103)">
+            <rect class="cls-17" width="805" height="40"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="804" height="39"/>
+        </g>
+        <text id="Поиск_пациента-2" data-name="Поиск пациента" class="cls-12" transform="translate(1093 108)">
+            <tspan x="0" y="22">Поиск пациента</tspan>
+        </text>
+        <g id="Polygon_2" data-name="Polygon 2" class="cls-13" transform="translate(1860.5 110)">
+            <path class="cls-17"
+                  d="M 22.28765106201172 26.5 L 5.712338447570801 26.5 L 0.5857797265052795 10.50258922576904 L 14 0.6210231184959412 L 27.41422080993652 10.50258922576904 L 22.28765106201172 26.5 Z"/>
+            <path class="cls-20"
+                  d="M 14 1.242036819458008 L 1.171554565429688 10.69209289550781 L 6.077154159545898 26 L 21.92283248901367 26 L 26.82844352722168 10.69209098815918 L 14 1.242036819458008 M 14 0 L 28 10.31307983398438 L 22.65246963500977 27 L 5.34752082824707 27 L 0 10.31307983398438 L 14 0 Z"/>
+        </g>
+        <g id="Rectangle_20" data-name="Rectangle 20" class="cls-14" transform="translate(1088 153)">
+            <rect class="cls-17" width="278" height="39"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="277" height="38"/>
+        </g>
+        <g id="Rectangle_21" data-name="Rectangle 21" class="cls-14" transform="translate(1617 153)">
+            <rect class="cls-17" width="276" height="39"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="275" height="38"/>
+        </g>
+        <g id="Rectangle_22" data-name="Rectangle 22" class="cls-14" transform="translate(1373 153)">
+            <rect class="cls-17" width="234" height="39"/>
+            <rect class="cls-18" x="0.5" y="0.5" width="233" height="38"/>
+        </g>
+        <text id="Иванов-2" data-name="Иванов" class="cls-12" transform="translate(1108 160)">
+            <tspan x="0" y="22">Иванов</tspan>
+        </text>
+        <text id="Иван-2" data-name="Иван" class="cls-12" transform="translate(1388 159)">
+            <tspan x="0" y="22">Иван</tspan>
+        </text>
+        <text id="Иванович-2" data-name="Иванович" class="cls-12" transform="translate(1640 160)">
+            <tspan x="0" y="22">Иванович</tspan>
+        </text>
+        <g id="Rectangle_23" data-name="Rectangle 23" class="cls-14" transform="translate(1088 202)">
+            <path class="cls-17"
+                  d="M0,0H805a0,0,0,0,1,0,0V826a24,24,0,0,1-24,24H24A24,24,0,0,1,0,826V0A0,0,0,0,1,0,0Z"/>
+            <path class="cls-18"
+                  d="M.5.5h804a0,0,0,0,1,0,0V826A23.5,23.5,0,0,1,781,849.5H24A23.5,23.5,0,0,1,.5,826V.5A0,0,0,0,1,.5.5Z"/>
+        </g>
+        <text id="Тип_данных:_Номер_телефона_Электронная_почта_Допустимое_время_для_звонков_Возраст_Статус_Совершеннолетний_ребенок_Находится_на_лечении_Лечащий_врач_Незаконченное_лечение_Срок_лечения_Диагноз_первого_посещения_Планируемый_срок_реабилитации_Установленное_2"
+              data-name="Тип данных:
+Номер телефона
+Электронная почта
+Допустимое время для звонков
+Возраст
+Статус (Совершеннолетний, ребенок)
+Находится на лечении
+Лечащий врач
+Незаконченное лечение
+Срок лечения
+Диагноз первого посещения
+Планируемый срок реабилитации
+Установленное " class="cls-15" transform="translate(1289 243)">
+            <tspan x="-61.064" y="0">Тип данных:</tspan>
+            <tspan x="-84.96" y="55">Номер телефона</tspan>
+            <tspan x="-97.174" y="110">Электронная почта</tspan>
+            <tspan x="-160.601" y="165">Допустимое время для звонков</tspan>
+            <tspan x="-39.311" y="220">Возраст</tspan>
+            <tspan x="-189.675" y="275">Статус (Совершеннолетний, ребенок)</tspan>
+            <tspan x="-113.051" y="330">Находится на лечении</tspan>
+            <tspan x="-73.933" y="385">Лечащий врач</tspan>
+            <tspan x="-124.207" y="440">Незаконченное лечение</tspan>
+            <tspan x="-69.991" y="495">Срок лечения</tspan>
+            <tspan x="-145.766" y="550">Диагноз первого посещения</tspan>
+            <tspan x="-173.18" y="605">Планируемый срок реабилитации</tspan>
+            <tspan x="-152.937" y="660">Установленное оборудование</tspan>
+            <tspan x="-166.611" y="715">Наличие аллергических реакций</tspan>
+            <tspan x="0" y="770"></tspan>
+            <tspan x="0" y="825"></tspan>
+            <tspan x="0" y="880"></tspan>
+            <tspan x="0" y="935"></tspan>
+        </text>
+        <text id="Значения_8-999-888-77-66_ивановИван_почтаРоссии.рф_10:00-18:00_27_Совершеннолетний_Да_Попов_Алексей_Владимирович_Да_1_месяц_Дистализация_дистальных_дисталей_11_меесяцев_Десневые_импланты_дуга_БутаноМетаЗол_2"
+              data-name="Значения
+8-999-888-77-66
+ивановИван@почтаРоссии.рф
+10:00-18:00
+27
+Совершеннолетний
+Да
+Попов Алексей Владимирович
+Да
+1 месяц
+Дистализация дистальных дисталей
+11 меесяцев
+Десневые импланты, дуга
+БутаноМетаЗол
+
+
+
+" class="cls-15" transform="translate(1681 243)">
+            <tspan x="-48.125" y="0">Значения</tspan>
+            <tspan x="-82.822" y="55">8-999-888-77-66</tspan>
+            <tspan x="-154.021" y="110">ивановИван@почтаРоссии.рф</tspan>
+            <tspan x="-56.606" y="165">10:00-18:00</tspan>
+            <tspan x="-11.859" y="220">27</tspan>
+            <tspan x="-100.187" y="275">Совершеннолетний</tspan>
+            <tspan x="-13.224" y="330">Да</tspan>
+            <tspan x="-155.837" y="385">Попов Алексей Владимирович</tspan>
+            <tspan x="-13.224" y="440">Да</tspan>
+            <tspan x="-39.633" y="495">1 месяц</tspan>
+            <tspan x="-180.12" y="550">Дистализация дистальных дисталей</tspan>
+            <tspan x="-62.896" y="605">11 меесяцев</tspan>
+            <tspan x="-130.023" y="660">Десневые импланты, дуга</tspan>
+            <tspan x="-78.434" y="715">БутаноМетаЗол</tspan>
+            <tspan x="0" y="770"></tspan>
+            <tspan x="0" y="825"></tspan>
+            <tspan x="0" y="880"></tspan>
+            <tspan x="0" y="935"></tspan>
+        </text>
+        <line id="Line_17" data-name="Line 17" class="cls-16" y2="850" transform="translate(1489.5 202.5)"/>
+        <line id="Line_18" data-name="Line 18" class="cls-16" x2="805" transform="translate(1088.5 256.5)"/>
+        <line id="Line_19" data-name="Line 19" class="cls-16" x2="805" transform="translate(1088.5 320.5)"/>
+        <line id="Line_20" data-name="Line 20" class="cls-16" x2="805" transform="translate(1088.5 384.5)"/>
+        <line id="Line_21" data-name="Line 21" class="cls-16" x2="805" transform="translate(1083.5 429.5)"/>
+        <line id="Line_22" data-name="Line 22" class="cls-16" x2="805" transform="translate(1087 485.5)"/>
+        <line id="Line_23" data-name="Line 23" class="cls-16" x2="805" transform="translate(1093 541.5)"/>
+        <line id="Line_24" data-name="Line 24" class="cls-16" x2="805" transform="translate(1088.5 586.5)"/>
+        <line id="Line_25" data-name="Line 25" class="cls-16" x2="805" transform="translate(1088.5 640.5)"/>
+        <line id="Line_26" data-name="Line 26" class="cls-16" x2="805" transform="translate(1088.5 704.5)"/>
+        <line id="Line_27" data-name="Line 27" class="cls-16" x2="805" transform="translate(1087 768.5)"/>
+        <line id="Line_28" data-name="Line 28" class="cls-16" x2="805" transform="translate(1087.5 813.5)"/>
+        <line id="Line_29" data-name="Line 29" class="cls-16" x2="805" transform="translate(1088.5 877.5)"/>
+        <line id="Line_30" data-name="Line 30" class="cls-16" x2="805" transform="translate(1088.5 922.5)"/>
+        <line id="Line_31" data-name="Line 31" class="cls-16" x2="805" transform="translate(1088 976.5)"/>
+        <image id="Image_1" data-name="Image 1" width="1046" height="873" transform="translate(14 143)"
+               xlink:href="%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0%202D%20%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-image.png"/>
+    </g>
+</svg>

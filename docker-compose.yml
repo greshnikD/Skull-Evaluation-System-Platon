@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=TaRaKaN8^2
+    networks:
+      gmed.network:
+  web:
+    build: .
+    ports:
+      - "9902:8080"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=TaRaKaN8^2
+    depends_on:
+      - db
+    networks:
+      gmed.network:
+networks:
+  gmed.network:
